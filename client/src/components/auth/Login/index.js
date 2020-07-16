@@ -42,10 +42,18 @@ export default function Login() {
       [name]: value,
     });
   }
+  const googleAuth =() => window.open('http://localhost:3001/auth/google');
+  const facebookAuth =() => window.open('http://localhost:3001/auth/facebook');
+  const twitterAuth =() => window.open('http://localhost:3001/auth/twitter');
+  const instagramAuth =() => window.open('http://localhost:3001/auth/instagram');
+  const LinkedInAuth =() => window.open('http://localhost:3001/auth/linkedin');
+  const SteamAuth =() => window.open('http://localhost:3001/auth/steam');
+  const GitHubAuth =() => window.open('http://localhost:3001/auth/github');
+
 
   return (
-    <div className="form-container">
-      {error && <div className="error">{error}</div>}
+    <span className="form-container">
+      {error && <span className="error">{error}</span>}
       <Form onSubmit={login}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Адрес электронный почты</Form.Label>
@@ -73,6 +81,24 @@ export default function Login() {
         </Form.Group>
         <Button variant="primary" type="submit">Войти</Button>
       </Form>
-    </div>
+      <span onClick={googleAuth}>
+        <img src="https://c7.uihere.com/files/193/660/878/search-engine-optimization-internet-google-search-google-thumb.jpg" height='40'/>  
+      </span>
+      <span onClick={facebookAuth}>
+        <img src="https://i.imgur.com/jiztYCH.png" height='40'/>  
+      </span>
+      <span onClick={twitterAuth}>
+        <img src="https://i.imgur.com/EYA2FO1.png" height='40'/>  
+      </span>
+      <span onClick={instagramAuth}>
+        <img src="https://i.imgur.com/aRc6LUJ.png" height='40'/>  
+      </span>
+      <span onClick={LinkedInAuth}>
+        <img src="https://i.imgur.com/sYmVWAw.png" height='40'/>  
+      </span>
+      <span onClick={GitHubAuth}>
+        <img src="https://blog.codingblocks.com/content/images/2019/01/download.png" height='40'/>  
+      </span>
+    </span>
   );
 }
