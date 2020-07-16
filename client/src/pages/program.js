@@ -7,8 +7,8 @@ import  ProgramCalendar from '../components/program/ProgramCalendar';
 
 export default function () {
   return (
-    <div className="container mt-4 position-fixed" >
-      {/* <div><ProgramVideo /></div> */}
+    <div className="container mt-10" >
+      <div><ProgramVideo /></div>
       <div><ProgramCheckList/></div>
       <div><ProgramAction/></div>
       <div><ProgramCalendar/></div>
