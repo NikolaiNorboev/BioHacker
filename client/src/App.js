@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Nav from './components/Views/navbar';
+import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Info from './components/Info';
+import QuestMain from './components/questionnaire/QuestMain';
 import PrivateRoute from './components/auth/PrivateRoute';
 import sessionChecker from './components/hooks/auth-hook';
 
@@ -31,9 +32,12 @@ export default function App() {
           <PrivateRoute path="/info">
             <Info />
           </PrivateRoute>
+          <Route path="/quest">
+            <QuestMain />
+          </Route>
           <Route exact path="/">
             <header>
-            вдылопрвыдлмрдывлмды
+              !!!!!!!!!!!!
             </header>
           </Route>
         </Switch>
