@@ -35,9 +35,9 @@ export default function App() {
           <Route path="/quest">
             <QuestMain />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <header>
-            
+              !!!!!!!!!!!!
             </header>
           </Route>
         </Switch>
