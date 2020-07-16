@@ -6,8 +6,10 @@ import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Info from './components/Info';
 import QuestMain from './components/questionnaire/QuestMain';
+import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import sessionChecker from './components/hooks/auth-hook';
+
 
 export default function App() {
   // Проверяем наличие на сервере сессии для данного пользователя
@@ -34,6 +36,9 @@ export default function App() {
           </PrivateRoute>
           <Route path="/quest">
             <QuestMain />
+          </Route>
+          <Route path="/program">
+            <Program />
           </Route>
           <Route path="/">
             <header>
