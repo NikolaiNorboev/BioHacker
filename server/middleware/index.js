@@ -6,20 +6,20 @@ import sessionFileStore from 'session-file-store';
 import passport from 'passport';
 // ------------------------------------
 import GStrategy from 'passport-google-oauth';
-const GoogleStrategy = GStrategy.OAuth2Strategy;
 import Instagram from 'passport-instagram';
-const InstagramStrategy = Instagram.Strategy;
 import Local from 'passport-local';
-const LocalStrategy = Local.Strategy;
 import Facebook from 'passport-facebook';
-const FacebookStrategy = Facebook.Strategy;
 import Twitter from 'passport-twitter';
-const TwitterStrategy = Twitter.Strategy;
 import GitHub from 'passport-github';
-const GitHubStrategy = GitHub.Strategy;
 import LinkedIn from 'passport-linkedin-oauth2';
-const LinkedInStrategy = LinkedIn.Strategy;
 import OpenID from 'passport-openid';
+const GoogleStrategy = GStrategy.OAuth2Strategy;
+const InstagramStrategy = Instagram.Strategy;
+const LocalStrategy = Local.Strategy;
+const FacebookStrategy = Facebook.Strategy;
+const TwitterStrategy = Twitter.Strategy;
+const GitHubStrategy = GitHub.Strategy;
+const LinkedInStrategy = LinkedIn.Strategy;
 const OpenIDStrategy = OpenID.Strategy;
 
 const FileStore = sessionFileStore(session);
