@@ -1,5 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
+import passport from 'passport';
 import User from '../models/user.js';
 
 const router = express.Router();
@@ -37,7 +38,7 @@ router
         email,
         password: await bcrypt.hash(password, saltRounds),
       }).save();
-      return res.status(200).end();
+      return res.status(200).json({});
 
     } catch (error) {
       console.log(error);
