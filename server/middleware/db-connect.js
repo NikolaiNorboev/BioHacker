@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/blank', {
+mongoose.connect(`mongodb+srv://Sergey_V:${process.env.ADMIN_PASSWORD}@cluster0-tzob7.azure.mongodb.net/bio?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

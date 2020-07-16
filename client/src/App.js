@@ -5,6 +5,7 @@ import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Info from './components/Info';
+import QuestMain from './components/questionnaire/QuestMain';
 import PrivateRoute from './components/auth/PrivateRoute';
 import sessionChecker from './components/hooks/auth-hook';
 
@@ -31,6 +32,9 @@ export default function App() {
           <PrivateRoute path="/info">
             <Info />
           </PrivateRoute>
+          <Route path="/quest">
+            <QuestMain />
+          </Route>
           <Route path="/">
             <header>
             
