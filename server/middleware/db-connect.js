@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/blank', {
+mongoose.connect(`mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_ADMIN_PASSWORD}@${process.env.DB_URL}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

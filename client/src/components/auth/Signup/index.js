@@ -24,10 +24,10 @@ export default function Signup() {
       body: JSON.stringify(inputs),
     });
 
-    const json = await response.json();
     if (response.status === 200) {
       return history.push('/login');
     }
+    const json = await response.json();
     return setError(json.message);
   }
 
@@ -58,7 +58,7 @@ export default function Signup() {
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Адрес электронный почты</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
             name="email"
             required
             value={inputs.email}

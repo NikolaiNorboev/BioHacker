@@ -1,11 +1,8 @@
 import express from 'express';
-import bcrypt from 'bcrypt';
-import passport from 'passport';
+import argon2 from 'argon2';
 import User from '../models/user.js';
 
 const router = express.Router();
-
-const saltRounds = 10;
 
 
 router.get('/', (req, res) => {
@@ -36,9 +33,9 @@ router
       await new User({
         username,
         email,
-        password: await bcrypt.hash(password, saltRounds),
+        password: await argon2.hash(password),
       }).save();
-      return res.status(200).json({});
+      return res.status(200).end();
 
     } catch (error) {
       console.log(error);
@@ -56,7 +53,7 @@ router
     const { email, password } = req.body;
     try {
       const user = await User.findOne({ email });
-      if (user && (await bcrypt.compare(password, user.password))) {
+      if (user && (await argon2.verify(user.password, password))) {
         req.session.user = user;
         req.session.user.password = undefined;
         res.json({username: req.session.user.username});
