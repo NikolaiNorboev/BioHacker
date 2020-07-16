@@ -21,10 +21,6 @@ const userSchema = new mongoose.Schema({
         return re.test(email);
       }, "Электронный адрес должен соответствовать шаблону",
     ],
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Электронный адрес должен соответствовать шаблону",
-    ],
   },
   password: {
     type: String,

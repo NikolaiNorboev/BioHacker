@@ -38,7 +38,7 @@ router
         email,
         password: await bcrypt.hash(password, saltRounds),
       }).save();
-      return res.status(200).json({});
+      return res.status(200).end();
 
     } catch (error) {
       console.log(error);
