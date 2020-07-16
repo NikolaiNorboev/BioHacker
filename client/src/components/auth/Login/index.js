@@ -26,6 +26,7 @@ export default function Login() {
     });
 
     const json = await response.json();
+    console.log('>>>>>>>>>>>>>>>>', json);
     if (response.status === 200) {
       dispatch(getUser(json.username));
       return history.push('/info');
