@@ -1,0 +1,13 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "yarn && cd client && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
