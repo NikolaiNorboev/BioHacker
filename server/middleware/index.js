@@ -7,20 +7,16 @@ import passport from 'passport';
 // ------------------------------------
 import GStrategy from 'passport-google-oauth';
 import Instagram from 'passport-instagram';
-import Local from 'passport-local';
 import Facebook from 'passport-facebook';
 import Twitter from 'passport-twitter';
 import GitHub from 'passport-github';
 import LinkedIn from 'passport-linkedin-oauth2';
-import OpenID from 'passport-openid';
 const GoogleStrategy = GStrategy.OAuth2Strategy;
 const InstagramStrategy = Instagram.Strategy;
-const LocalStrategy = Local.Strategy;
 const FacebookStrategy = Facebook.Strategy;
 const TwitterStrategy = Twitter.Strategy;
 const GitHubStrategy = GitHub.Strategy;
 const LinkedInStrategy = LinkedIn.Strategy;
-const OpenIDStrategy = OpenID.Strategy;
 
 const FileStore = sessionFileStore(session);
 
@@ -82,7 +78,7 @@ export default function (app) {
     clientSecret: process.env.FACEBOOK_SECRET,
     callbackURL: '/auth/facebook/callback',
     profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
-    passReqToCallback: true
+    passReqToCallback: true,
   }, (req, accessToken, refreshToken, profile, done) => done(null, profile.displayName)));
 
   /**
@@ -93,7 +89,7 @@ export default function (app) {
     consumerSecret: process.env.TWITTER_SECRET,
     callbackURL: '/auth/twitter/callback',
     // passReqToCallback: true
-  }, (req, accessToken, tokenSecret, profile, done) => done(null, existingUser)));
+  }, (req, accessToken, tokenSecret, profile, done) => done(null, profile.displayName)));
 
   /**
    * Sign in with Instagram.
@@ -116,23 +112,6 @@ export default function (app) {
     scope: ['r_basicprofile', 'r_emailaddress'],
     passReqToCallback: true
   }, (req, accessToken, refreshToken, profile, done) => done(null, profile.displayName)));
-
-
-  /**
-   * Sign in with Steam.
-   */
-  passport.use('steam', new OpenIDStrategy({
-    apiKey: process.env.STEAM_KEY,
-    providerURL: 'http://steamcommunity.com/openid',
-    returnURL: '/auth/steam/callback',
-    realm: '/',
-    stateless: true,
-    passReqToCallback: true,
-  }, (req, identifier, done) => {
-    const steamId = identifier.match(/\d+$/)[0];
-    const profileURL = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_KEY}&steamids=${steamId}`;
-    done(null, profile.displayName);
-  }));
 
   /**
    * Sign in with GitHub.

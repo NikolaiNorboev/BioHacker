@@ -96,11 +96,8 @@ export default function Login() {
       <span onClick={LinkedInAuth}>
         <img src="https://i.imgur.com/sYmVWAw.png" height='40'/>  
       </span>
-      <span onClick={SteamAuth}>
-        <img src="https://i.imgur.com/1xGmKBX.jpg" height='40'/>  
-      </span>
       <span onClick={GitHubAuth}>
-        <img src="https://i.imgur.com/2AaBlpf.png" height='40'/>  
+        <img src="https://blog.codingblocks.com/content/images/2019/01/download.png" height='40'/>  
       </span>
     </span>
   );

@@ -25,10 +25,6 @@ router.get('/linkedin', passport.authenticate('linkedin', { state: 'SOME STATE' 
 router.get('/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }),
 (req, res) => res.redirect('http://localhost:3000'));
 
-router.get('/steam', passport.authenticate('steam', { state: 'SOME STATE' }));
-router.get('/steam/callback', passport.authenticate('steam', { failureRedirect: '/login' }),
-(req, res) => res.redirect('http://localhost:3000'));
-
 router.get('/github', passport.authenticate('github'));
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
 (req, res) => res.redirect('http://localhost:3000'));
