@@ -12,15 +12,15 @@ export default function Nav() {
       <Navbar.Brand href="#home">Реакт-NodeJS</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-start">
-        <Navbar.Text><a href="signup">Зарегистрироваться</a></Navbar.Text>
+        <Navbar.Text><a href="/signup">Зарегистрироваться</a></Navbar.Text>
         &nbsp;
-        {!isAuthenticated && <Navbar.Text><a href="login">Войти</a></Navbar.Text>}
+        {!isAuthenticated && <Navbar.Text><a href="/login">Войти</a></Navbar.Text>}
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
 
         {isAuthenticated && <Navbar.Text>Вы вошли как: {username}</Navbar.Text>}
         &nbsp;
-        {isAuthenticated && <Navbar.Text><a href="logout">Выйти</a></Navbar.Text>}
+        {isAuthenticated && <Navbar.Text><a href="/logout">Выйти</a></Navbar.Text>}
       </Navbar.Collapse>
     </Navbar>
   );

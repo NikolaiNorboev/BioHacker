@@ -31,9 +31,9 @@ export default function App() {
           <PrivateRoute path="/info">
             <Info />
           </PrivateRoute>
-          <Route path="/">
+          <Route exact path="/">
             <header>
-            
+            вдылопрвыдлмрдывлмды
             </header>
           </Route>
         </Switch>
