@@ -70,7 +70,7 @@ router
   });
 
 router.get('/logout', async (req, res) => {
-  if (req.session.user) {
+  if (req.session) {
     try {
       await req.session.destroy();
     } catch (error) {

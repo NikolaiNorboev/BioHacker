@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
@@ -9,9 +9,10 @@ import QuestMain from './components/questionnaire/QuestMain';
 import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
-import Stepper from './components/Paginator';
+import Stepper from './components/Stepper';
 import sessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
+
 
 export default function App() {
   // Проверяем наличие на сервере сессии для данного пользователя

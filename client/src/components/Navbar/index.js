@@ -7,6 +7,7 @@ export default function Nav() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const username = useSelector((state) => state.auth.username);
   console.log(isAuthenticated, username);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <Link className="navbar-brand mb-0 h1" to="/">
