@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useSelector } from 'react-redux';
 import PageOfQuest from '../PageOfQuest';
@@ -6,13 +7,17 @@ import './QuestMain.scss'
 
 function QuestMain(props) {
   const data = useSelector(state => state.quest);
+  const history = useHistory();
   const [questionIndex,setQI] = useState(0);
+  
+  function getPrev() {
+    console.log('buttonP');
+    setQI(questionIndex - 1);
+  }
   function getNext() {
-    // let history = props.history;
-    console.log('button');
+    console.log('buttonN');
     if (data.length === questionIndex + 1) {
-      // this.props.getResult(this.state.score, history);
-      console.log('Fin');
+      history.push('/result');
     } else {
       setQI(questionIndex + 1);
     }
@@ -20,10 +25,9 @@ function QuestMain(props) {
 
   return (
     <div className='questMain'>
-      <h6>Quest Main</h6>
       <TransitionGroup>
         <CSSTransition
-          timeout={500}
+          timeout={1000}
           classNames="slide"
           key={questionIndex}
         >
@@ -31,6 +35,7 @@ function QuestMain(props) {
             key={questionIndex}
             {...data[questionIndex]}
             getNext={getNext}
+            getPrev={getPrev}
             questionsCount={data.length}
           />
         </CSSTransition>

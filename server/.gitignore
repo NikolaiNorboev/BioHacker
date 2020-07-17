@@ -6,6 +6,9 @@
 ### dotenv ###
 #.env
 
+### sessions
+/sessions
+
 ### Node ###
 # Logs
 logs
