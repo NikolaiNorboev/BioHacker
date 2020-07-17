@@ -1,35 +1,35 @@
 const initialState = [
   {
-    answer: '1',
-    question_text: 'First question',
+    questionIndex: '1',
+    questionText: 'First question',
     data: [
       {
         key: 1,
-        question_option: 'First answer',
-        question_answer: false,
+        questionOption: 'First answer',
+        questionAnswer: false,
       },
       {
         key: 2,
-        question_option: 'First answer',
-        question_answer: false,
+        questionOption: 'Second answer',
+        questionAnswer: false,
       }
     ]
   },
   {
-    answer: '2',
-    question_text: 'Second question',
+    questionIndex: '2',
+    questionText: 'Second question',
     data: [
       {
         key: 1,
-        question_option: 'First answer',
-        question_answer: false,
+        questionOption: 'First answer',
+        questionAnswer: false,
       },
       {
         key: 2,
-        question_option: 'First answer',
-        question_answer: false,
-      },
-    ],
+        questionOption: 'Second answer',
+        questionAnswer: false,
+      }
+    ]
   },
 ];
 
