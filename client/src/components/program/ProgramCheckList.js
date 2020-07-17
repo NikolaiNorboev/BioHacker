@@ -1,20 +1,22 @@
 import React from 'react';
+import styles from './programList.module.css';
 
 // что в программе 
 export default function () {
   return (
       <>
-      <div className="container">
-        <div className="card" >
-          <div className="list-group">
-            <button type="button" className="list-group-item list-group-item-action">Cras justo odio</button>
-            <button type="button" className="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" className="list-group-item list-group-item-action">Morbi leo risus</button>
-            <button type="button" className="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-            <button type="button" className="list-group-item list-group-item-action">Vestibulum at eros</button>
-          </div>
+        <div>
+          <h5 className="card-title"> Вы получаете:</h5>
+          <ol className={styles.ol}>
+            <li className={styles.li}>Полное сопровождение</li>
+            <li className={styles.li}>Календарь приема</li>
+            <li className={styles.li}>Полное сопровождение </li>
+            <li className={styles.li}>Полное сопровождение </li>
+            <li className={styles.li}>Полное сопровождение </li>
+
+          </ol>
         </div>
-      </div>
       </>
+
   )
 }
