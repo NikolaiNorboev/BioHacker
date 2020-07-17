@@ -42,13 +42,11 @@ export default function App() {
           <Route path="/program">
             <Program />
           </Route>
-<<<<<<< HEAD
           <Route path="/thankYou">
             <Thankyou />
-=======
+          </Route>
           <Route path="/stepper">
             <Stepper />
->>>>>>> daa8f5da265a921cbae9afaf1de0fa9b28ae07f3
           </Route>
           <Route path="/">
             <Landing />
