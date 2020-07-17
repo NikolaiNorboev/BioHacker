@@ -7,11 +7,11 @@ import  ProgramCalendar from '../components/program/ProgramCalendar';
 
 export default function () {
   return (
-    <div className="container mt-10" >
-      <div><ProgramVideo /></div>
-      <div><ProgramCheckList/></div>
-      <div><ProgramAction/></div>
-      <div><ProgramCalendar/></div>
+    <div className="container row card" style={{position:"relative"}} >
+      <div className="card-body" ><ProgramVideo /></div>
+      <div className="card-body" ><ProgramCheckList/></div>
+      <div className="card-body" ><ProgramAction/></div>
+      <div className="card-body" ><ProgramCalendar/></div>
 
     </div>
   )
