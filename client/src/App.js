@@ -10,6 +10,7 @@ import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
 import sessionChecker from './components/hooks/auth-hook';
+import Thankyou from './components/program/Thankyou';
 
 export default function App() {
   // Проверяем наличие на сервере сессии для данного пользователя
@@ -39,6 +40,9 @@ export default function App() {
           </Route>
           <Route path="/program">
             <Program />
+          </Route>
+          <Route path="/thankYou">
+            <Thankyou />
           </Route>
           <Route path="/">
             <Landing />
