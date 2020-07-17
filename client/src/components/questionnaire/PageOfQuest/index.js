@@ -1,50 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getAnswer } from '../../../redux/actions/questionnaire';
 import './PageOfQuest.scss'
 
-function PageOfQuest(props) {
-
-  const { getNext, questionIndex, questionText, data, questionsCount, image, type, getPrev} = props;
-  const quest = useSelector(state => state.quest);
+function PageOfQuest({qi, getPrev, getNext}) {
+  const [flag2, setFlag2] = useState(false)
+  let quest = useSelector(state => state.quest);
+  let thisQ = quest[qi];
   const dispatch = useDispatch();
 
   let flag = false;
-  if (questionIndex > 1) flag = true;
+  if (qi > 0) flag = true;  
 
   function getAns(key) {
-    // quest = quest.map((third) => {
-    //   return (
-    //     third.questionIndex === questionIndex ?{
-    //       data.map(four => {
-    //         return (
-    //           if (four.key === key) {
-    //           four.questionOption = !four.questionOption;
-    //           }
-    //         )
-    //       
-    //     }
-    //   )
-    // })
+    setFlag2(true);
+    const newData = thisQ.data.map(one => {
+      return (
+        one.key === key ? {...one, questionAnswer: !one.questionAnswer} :
+        thisQ.type === 'radio' ? {...one, questionAnswer: false} : one
+      )
+    })
+    quest = quest.map(sec => {
+      return(
+        sec.questionIndex === thisQ.questionIndex ? {...sec, data: newData} : sec
+      )
+    });
+    // console.log(quest);
+    dispatch( getAnswer(quest));
   }
 
   return(
     <div className="question">
      
-      <p className="questionCount">{questionIndex}/{questionsCount}</p>
-      <h3>{questionText}</h3>
-      <img className="question__img" src={image} alt="alt" />
+      <p className="questionCount">{qi + 1}/{quest.length}</p>
+      <h3>{thisQ.questionText}</h3>
+      <img className="question__img" src={thisQ.image} alt="alt" />
       <ul className="questionUl">
-        {data.length && data.map(second => {
+        {thisQ.data && thisQ.data.map(second => {
           return(
-            <li key={questionIndex + data.key} className="questionLi">
+            <li key={second.key} className="questionLi">
               <span className="questionSpan">{second.questionOption}</span>
-              <input className="questionInput"type={type} defaultChecked={second.questionAnswer} onClick={getAns(data.key)}/>
+              <input className="questionInput"type={thisQ.type} 
+                defaultChecked={second.questionAnswer} 
+                onChange={() =>getAns(second.key)}/>
             </li>
           )
         })}
-      {flag && <button onClick={getPrev}>Previos</button>}
-      <button onClick={getNext}>Next</button>
+      {flag && <button onClick={getPrev} className="app-button">
+        Previos</button>}
+      {flag2 && <button onClick={getNext} className="app-button">{
+      quest.length === qi + 1 ? "Result" : "Next"}</button>}
       </ul>
       
     </div>
