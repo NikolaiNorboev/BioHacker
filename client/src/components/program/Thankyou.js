@@ -9,7 +9,7 @@ export default function () {
       <p>В ближайшее время вы получите свой набор пилюль! Ждите...</p>
       <hr/>
     
-      <a type="button" href="/info">Вернуться в личный кабинет</a>
+      {/* <a type="button" href="/info">Вернуться в личный кабинет</a> */}
     </div>
     </div>
   )
