@@ -43,6 +43,7 @@ export default function Login() {
     });
   }
   const googleAuth =() => window.open('http://localhost:3001/auth/google');
+  const yandexAuth =() => window.open('http://localhost:3001/auth/yandex');
   const facebookAuth =() => window.open('http://localhost:3001/auth/facebook');
   const twitterAuth =() => window.open('http://localhost:3001/auth/twitter');
   const instagramAuth =() => window.open('http://localhost:3001/auth/instagram');
@@ -83,6 +84,9 @@ export default function Login() {
       </Form>
       <span onClick={googleAuth}>
         <img src="https://c7.uihere.com/files/193/660/878/search-engine-optimization-internet-google-search-google-thumb.jpg" height='40'/>  
+      </span>
+      <span onClick={yandexAuth}>
+        <img src="https://siteblogger.ru/wp-content/uploads/2013/11/optimiz-yandex-400x250.jpg" height='40'/>  
       </span>
       <span onClick={facebookAuth}>
         <img src="https://i.imgur.com/jiztYCH.png" height='40'/>  

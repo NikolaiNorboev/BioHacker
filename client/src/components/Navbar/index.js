@@ -33,6 +33,11 @@ export default function Nav() {
               Program
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/stepper">
+              Stepper
+            </NavLink>
+          </li>
           <li>
             <NavLink className="nav-link" to="/quest">
               Quest
