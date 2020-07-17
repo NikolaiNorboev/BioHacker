@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
@@ -9,8 +9,9 @@ import QuestMain from './components/questionnaire/QuestMain';
 import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
-import Stepper from './components/Paginator';
+import Stepper from './components/Stepper';
 import sessionChecker from './components/hooks/auth-hook';
+
 
 export default function App() {
   // Проверяем наличие на сервере сессии для данного пользователя
@@ -19,36 +20,34 @@ export default function App() {
   sessionChecker();
 
   return (
-    <>
-      <Router>
-        <Nav />
-        <Switch>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/logout">
-            <Logout />
-          </Route>
-          <PrivateRoute path="/info">
-            <Info />
-          </PrivateRoute>
-          <Route path="/quest">
-            <QuestMain />
-          </Route>
-          <Route path="/program">
-            <Program />
-          </Route>
-          <Route path="/stepper">
-            <Stepper />
-          </Route>
-          <Route path="/">
-            <Landing />
-          </Route>
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Nav />
+      <Switch>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/logout">
+          <Logout />
+        </Route>
+        <PrivateRoute path="/info">
+          <Info />
+        </PrivateRoute>
+        <Route path="/quest">
+          <QuestMain />
+        </Route>
+        <Route path="/program">
+          <Program />
+        </Route>
+        <Route path="/stepper">
+          <Stepper />
+        </Route>
+        <Route path="/">
+          <Landing />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
