@@ -1,5 +1,8 @@
 
       /* ---------- style start ----------- */
+      .image {
+        border-radius: 5%;
+      }
 
       .ol {
         counter-reset:myCounter;

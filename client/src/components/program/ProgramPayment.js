@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Link} from 'react';
 
 export default function () {
   return (
       <>
         <div>
-          <a href="#" className="btn btn-primary" style={{background:"#2980b9"}}>Оплатить</a>
+          <a href="/thankyou" className="btn btn-primary" style={{background:"#2980b9"}}>Оплатить</a>
         </div>
       </>
   )
