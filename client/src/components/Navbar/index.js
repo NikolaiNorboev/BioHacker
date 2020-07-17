@@ -1,6 +1,7 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from 'react-redux';
 
 export default function Nav() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -8,26 +9,39 @@ export default function Nav() {
   console.log(isAuthenticated, username);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <a className="navbar-brand mb-0 h1" href="#">
+      <Link className="navbar-brand mb-0 h1" to="/">
+        <img
+          className="mr-2"
+          src="/img/carrot.png"
+          width="30"
+          height="30"
+          alt="carrot"
+          loading="lazy"
+        ></img>
         Bio-hacker
-      </a>
+      </Link>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="#">
-              Home <span className="sr-only">(current)</span>
-            </a>
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">
+              Home
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="program">
+            <NavLink className="nav-link" to="/program">
               Program
-            </a>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/stepper">
+              Stepper
+            </NavLink>
           </li>
           <li>
-            <a className="nav-link" href="/quest">
+            <NavLink className="nav-link" to="/quest">
               Quest
-            </a>
+            </NavLink>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
@@ -52,19 +66,19 @@ export default function Nav() {
                 />
               </svg>
               <span class="navbar-text mx-2">{username}</span>
-              <button className="btn btn-success my-2 my-sm-0" href="logout">
+              <NavLink className="btn btn-success my-2 my-sm-0" to="/logout">
                 logout
-              </button>
+              </NavLink>
             </>
           )}
           {!isAuthenticated && (
             <>
-              <button className="btn btn-success my-2 my-sm-0" href="signup">
+              <NavLink className="btn btn-success my-2 my-sm-0" to="/signup">
                 Register
-              </button>
-              <button className="btn btn-success my-2 my-sm-0" href="login">
+              </NavLink>
+              <NavLink className="btn btn-success my-2 my-sm-0" to="/login">
                 login
-              </button>
+              </NavLink>
             </>
           )}
         </form>

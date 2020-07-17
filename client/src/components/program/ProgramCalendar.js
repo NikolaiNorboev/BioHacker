@@ -1,21 +1,27 @@
-import React from 'react';
-import DayPicker from 'react-day-picker';
+import React, { useState } from 'react';
+// import DayPicker from 'react-date-picker';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
+
 import 'react-day-picker/lib/style.css';
 
  
 export default function () {
+  const [value, onChange] = useState(new Date());
+
   return (
       <>
-       <div className="container">
-       <div className="card">
-          <div className="card-body">
+          <div>
             <h5 className="card-title">Выберите когда вы готовы начать</h5>
-            {/* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-              <DayPicker />
-            <a href="#" className="btn btn-primary">Оплатить</a>
+              <Calendar locale={'ru'}
+              style= {{display: "flex", justifyContent:"space-around"}}
+              onChange={onChange}
+              value={value}
+              />
           </div>
-        </div>
-        </div>
       </>
   )
 }
+

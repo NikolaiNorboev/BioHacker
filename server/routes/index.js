@@ -83,11 +83,15 @@ router.get('/logout', async (req, res) => {
 });
 
 router.get('/checkSession', (req, res) => {
-  if (req.session.user) {
+  if (req.session.user)  {
     return res.json({
       username: req.session.user.username,
     });
-  }
+  } else if (req.session.passport) {
+    return res.json({
+      username: req.session.passport.user,
+    });
+  };
   res.status(401).end();
 });
 
