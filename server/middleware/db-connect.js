@@ -7,5 +7,4 @@ mongoose.connect(`mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_ADMIN_P
   useCreateIndex: true,
 });
 
-
 export default mongoose.connection;
