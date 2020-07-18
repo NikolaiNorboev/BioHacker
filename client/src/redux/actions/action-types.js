@@ -2,3 +2,5 @@ export const AUTHENTICATED_SUCCESSFULLY = 'AUTHENTICATED_SUCCESSFULLY';
 export const LOGOUT = 'LOGOUT';
 export const FAILED = 'FAILED';
 export const ANSWERQUEST = 'ANSWERQUEST';
+export const STEPPLUS = 'STEPPLUS';
+export const STEPMINUS = 'STEPMINUS';
