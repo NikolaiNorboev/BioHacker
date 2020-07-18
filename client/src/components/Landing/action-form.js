@@ -15,7 +15,7 @@ function ActionForm() {
             изменения в лучшую сторону!
           </p>
           <Link
-            class="btn btn-success btn-lg mx-auto"
+            class="btn btn-success mx-auto"
             to="/signup"
             role="button"
           >
