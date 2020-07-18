@@ -1,13 +1,27 @@
-import React from 'react'; 
+// http://jquense.github.io/react-big-calendar/examples/index.html#intro
+import React from 'react';
+import { Calendar } from 'react-big-calendar';
+import moment from 'moment';
+// import events from '../events'
+// import * as dates from '../../src/utils/dates'
 
 
-export default function Statistics() {
+export default function Statistics({  }) {
+
+  // Setup the localizer by providing the moment (or globalize) Object
+  // to the correct localizer.
+  const localizer = Calendar.momentLocalizer(moment); // or globalizeLocalizer
+
   return (
-    <div className="container">
-      <div className="alert alert-success" role="alert">
-      <h4 className="alert-heading">Статистика + Планировщик</h4>
-      
-      </div>
+    <div>
+      <Calendar
+        localizer={localizer}
+        // events={myEventsList}
+        startAccessor="start"
+        endAccessor="end"
+      />
     </div>
   )
 } 
+
+
