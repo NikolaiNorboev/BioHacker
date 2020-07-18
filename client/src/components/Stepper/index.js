@@ -10,7 +10,8 @@ import { stepPlus, stepMinus} from '../../redux/actions/stepper';
 
 export default function Stepper() {
   const dispatch = useDispatch();
-  const step = useSelector(state => state.step)
+  const step = useSelector(state => state.step);
+  
   return (
     <div>
       <StepperH 
