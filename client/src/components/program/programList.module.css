@@ -1,5 +1,11 @@
 
       /* ---------- style start ----------- */
+      
+      .pad {
+        padding: 1.25rem;
+      }
+
+      
       .image {
         border-radius: 5%;
       }
