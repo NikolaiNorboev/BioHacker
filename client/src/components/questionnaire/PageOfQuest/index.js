@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getAnswer } from '../../../redux/actions/questionnaire';
-import './PageOfQuest.scss'
+import './PageOfQuest.module.scss'
 
 function PageOfQuest({qi, getPrev, getNext}) {
   const [flag2, setFlag2] = useState(false)
@@ -30,16 +30,16 @@ function PageOfQuest({qi, getPrev, getNext}) {
   }
 
   return(
-    <div className="question">
+    <div className="container-fluid">
      
-      <p className="questionCount">{qi + 1}/{quest.length}</p>
-      <h3>{thisQ.questionText}</h3>
+      <p className="question__count">{qi + 1}/{quest.length}</p>
+      <h3 className="question__text">{thisQ.questionText}</h3>
       <img className="question__img" src={thisQ.image} alt="alt" />
       <ul className="questionUl">
         {thisQ.data && thisQ.data.map(second => {
           return(
             <li key={second.key} className="questionLi">
-              <span className="questionSpan">{second.questionOption}</span>
+              <span className="question__option">{second.questionOption}</span>
               <input className="questionInput"type={thisQ.type} 
                 defaultChecked={second.questionAnswer} 
                 onChange={() =>getAns(second.key)}/>
