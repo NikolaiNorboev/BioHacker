@@ -41,9 +41,20 @@ export default function Signup() {
   }
 
   return (
-    <div className="form-container">
+    <div className="container mt-4">
       {error && <div className="error">{error}</div>}
       <Form onSubmit={signup}>
+        <Form.Group controlId="formBasicLogin">
+          <Form.Label>Полное имя</Form.Label>
+          <Form.Control
+            type="text"
+            name="username"
+            required
+            value={inputs.fullname}
+            onChange={changed}
+            placeholder="Сергей Иванов"
+          />
+        </Form.Group>
         <Form.Group controlId="formBasicLogin">
           <Form.Label>Логин</Form.Label>
           <Form.Control
@@ -52,7 +63,8 @@ export default function Signup() {
             required
             value={inputs.username}
             onChange={changed}
-            placeholder="Укажите login" />
+            placeholder="Ivanov"
+          />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
@@ -63,7 +75,8 @@ export default function Signup() {
             required
             value={inputs.email}
             onChange={changed}
-            placeholder="Укажите e-mail" />
+            placeholder="email@example.com"
+          />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -74,12 +87,15 @@ export default function Signup() {
             required
             value={inputs.password}
             onChange={changed}
-            placeholder="ваш пароль" />
+            placeholder="Придумайте надежный пароль"
+          />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Сохранить логин" />
         </Form.Group>
-        <Button variant="primary" type="submit">Зарегистрироваться</Button>
+        <Button variant="success" type="submit">
+          Зарегистрироваться
+        </Button>
       </Form>
     </div>
   );
