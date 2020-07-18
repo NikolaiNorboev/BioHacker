@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useSelector } from 'react-redux';
 import PageOfQuest from '../PageOfQuest';
-import './QuestMain.scss'
+import './QuestMain.module.scss'
 
 function QuestMain(props) {
   const allData = useSelector(state => state.quest);
@@ -14,15 +14,13 @@ function QuestMain(props) {
     setQI(qi - 1);
   }
   function getNext() {
-    if (allData.length === qi + 1) {
-      history.push('/result');
-    } else {
+    if (allData.length > qi + 1) {
       setQI(qi + 1);
     }
   }
 
   return (
-    <div className='questMain'>
+    <div className="container-fluid">
       <TransitionGroup>
         <CSSTransition
           timeout={1000}
