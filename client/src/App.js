@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Info from './components/Info';
-import QuestMain from './components/questionnaire/QuestMain';
 import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
@@ -42,9 +41,6 @@ export default function App() {
           <PrivateRoute path="/info">
             <Info />
           </PrivateRoute>
-          <Route path="/quest">
-            <QuestMain />
-          </Route>
           <Route path="/program">
             <Program />
           </Route>
