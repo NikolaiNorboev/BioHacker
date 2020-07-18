@@ -14,9 +14,7 @@ function QuestMain(props) {
     setQI(qi - 1);
   }
   function getNext() {
-    if (allData.length === qi + 1) {
-      history.push('/result');
-    } else {
+    if (allData.length > qi + 1) {
       setQI(qi + 1);
     }
   }
