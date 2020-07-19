@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 function ChannelSelection() {
+  // default state for replacment checkboxes
   const type = {
     email: false,
     push: false,
     telegram: false,
   };
 
+  // telegram userName value
   const [telegram, setTelegram] = useState('');
-  const [ready, setReady] = useState(false);
+
+  // channel state
   const [channelType, setChannelType] = useState({
     email: false,
     push: false,
@@ -23,10 +26,61 @@ function ChannelSelection() {
       [event.target.name]: event.target.checked,
     };
     setChannelType(newCheckBox);
+    if (event.target.name === 'push') {
+      pushCheckBoxHandler();
+    }
   };
 
+  // telegram input handler
   function telegramHandler(e) {
     setTelegram(e.target.value);
+  }
+
+  // push subscription logic
+  function pushCheckBoxHandler() {
+    // Check for service worker
+    if ('serviceWorker' in navigator) {
+      setServiceWorker().catch((err) => console.error(err));
+    }
+  }
+
+  // register SW, register Push, send notification to server
+  async function setServiceWorker() {
+    const PUBLIC_VAPID_KEY = process.env.REACT_APP_PUBLIC_VAPID_KEY;
+    const register = await navigator.serviceWorker.register('/sw.js', {
+      scope: '/',
+    });
+
+    // register push
+    const subscription = await register.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY),
+    });
+
+    // Send push notification
+    await fetch('/subscribe', {
+      method: 'POST',
+      body: JSON.stringify(subscription),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  // какая то функция которая конвертирует ключ
+  function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
   }
 
   return (
