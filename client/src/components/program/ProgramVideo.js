@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactPlayer from 'react-player';
 
-export default function () {
-  return (
-      <>
-        <div className="image">
-          {/* <div class="embed-responsive embed-responsive-4by3" >
-            <iframe class="embed-responsive-item" src="../../public/video/"></iframe>
-          </div> */}
-          <img style={{maxWidth: "900px"}} src="https://i.ytimg.com/vi/OXuIqaeg0SI/maxresdefault.jpg" className="" alt="..."/>
-        </div>
-      </>
-  )
-}
+export default function VideoPlayer() {
+
+  const [videoUrl, setVideoUrl] = useState('');
+
+  // будем менять url видео в зависимости от выбранной программы
+
+  return(
+    <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />);
+};

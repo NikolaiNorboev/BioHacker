@@ -112,7 +112,7 @@ function ChannelSelection() {
           checked={channelType.push}
         />
         <label className="form-check-label" for="push">
-          Пуш уведомления
+          Push-уведомления
         </label>
       </div>
       <div className="form-check">
