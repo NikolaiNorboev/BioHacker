@@ -7,7 +7,7 @@ import Settings from '../components/User/settings';
 export default function () {
   return (
     <>
-    {/* <div className="nav-scroller py-1 mb-2">
+    <div className="nav-scroller py-1 mb-2">
       <div classname="nav d-flex justify-content-center">
         <NavLink class="p-2 text-muted" to="/user/statistics">
           Статистика
@@ -19,29 +19,29 @@ export default function () {
           Настройки
         </NavLink>
       </div>
-    </div> */}
+    </div>
 
 
-    <div class="card text-center">
+    {/* <div class="card text-center">
       <div class="card-header nav d-flex justify-content-center">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="/user/statistic">Статистика</a>
+            <Link class="nav-link" to="/user/statistic">Статистика</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/scheduler">Календарь</a>
+            <Link class="nav-link" to="/user/scheduler">Календарь</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/user/settings">Настройки</a>
+            <Link class="nav-link active" to="/user/settings">Настройки</Link>
           </li>
         </ul>
-      </div>
-      <div class="card-body">
-        <Settings />
+      </div> */}
+      <div className="card">
+         <Settings />
         {/* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
 
       </div>
-    </div>
+    {/* </div> */}
     </>
   )
 }

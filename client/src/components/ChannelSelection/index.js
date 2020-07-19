@@ -46,6 +46,7 @@ function ChannelSelection() {
 
   // register SW, register Push, send notification to server
   async function setServiceWorker() {
+    
     const PUBLIC_VAPID_KEY = process.env.REACT_APP_PUBLIC_VAPID_KEY;
     const register = await navigator.serviceWorker.register('/sw.js', {
       scope: '/',
@@ -84,71 +85,76 @@ function ChannelSelection() {
   }
 
   return (
-    <div className="container mt-2">
-      <p className="font-weight-bold">
+    <>
+      <div className="card-header">
         Выберете удобный для Вас способ получения уведомлений:
-      </p>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          onChange={inputHandler}
-          type="checkbox"
-          name="email"
-          id="email"
-          checked={channelType.email}
-        />
-        <label className="form-check-label" for="email">
-          E-mail
-        </label>
       </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          onClick={inputHandler}
-          type="checkbox"
-          name="push"
-          id="push"
-          value={telegram}
-          checked={channelType.push}
-        />
-        <label className="form-check-label" for="push">
-          Push-уведомления
-        </label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          onChange={inputHandler}
-          type="checkbox"
-          name="telegram"
-          id="telegram"
-          checked={channelType.telegram}
-        />
-        <label className="form-check-label" for="telegram">
-          Telegram бот
-        </label>
-        {channelType.telegram && (
-          <div className="mt-2 row w-50">
-            <div className="input-group flex-nowrap col-auto">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="addon-wrapping">
-                  @
-                </span>
+
+      <div class="card-body">
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            onChange={inputHandler}
+            type="checkbox"
+            name="email"
+            id="email"
+            checked={channelType.email}
+          />
+          <label className="form-check-label" htmlFor="email">
+            E-mail
+          </label>
+        </div>
+
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            onClick={inputHandler}
+            type="checkbox"
+            name="push"
+            id="push"
+            value={telegram}
+            checked={channelType.push}
+          />
+          <label className="form-check-label" htmlFor="push">
+            Push-уведомления
+          </label>
+        </div>
+        
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            onChange={inputHandler}
+            type="checkbox"
+            name="telegram"
+            id="telegram"
+            checked={channelType.telegram}
+          />
+          <label className="form-check-label" htmlFor="telegram">
+            Telegram бот
+          </label>
+          {channelType.telegram && (
+            <div className="mt-2 row w-50">
+              <div className="input-group flex-nowrap col-auto">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="addon-wrapping">
+                    @
+                  </span>
+                </div>
+                <input
+                  onChange={telegramHandler}
+                  type="text"
+                  name="telegramuser"
+                  className="form-control"
+                  placeholder="Имя пользователя в Telegram"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                />
               </div>
-              <input
-                onChange={telegramHandler}
-                type="text"
-                name="telegramuser"
-                className="form-control"
-                placeholder="Имя пользователя в Telegram"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

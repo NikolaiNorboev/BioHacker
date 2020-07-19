@@ -1,6 +1,8 @@
 
       /* ---------- style start ----------- */
- 
+      .react-calendar {
+        z-index:100;
+      }
 
       .pad {
         padding: 1.25rem;
@@ -16,6 +18,7 @@
         margin-left:0;
         padding-left:5px;
         color: rgb(100,100,100);
+        z-index:1;
       }
 
       .li {
@@ -27,6 +30,7 @@
         cursor: pointer;
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
+        z-index:1;
       }
 
       .li:hover {
