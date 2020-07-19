@@ -6,8 +6,9 @@ import DayPicker from 'react-date-picker';
 import 'react-day-picker/lib/style.css';
 
 import ChannelSelection from '../ChannelSelection';
+import PurchaseList from '../User/purchaseList'
 
-// import styles from './styles.module.css'
+import styles from './purchaseList.module.css';
 
 
 export default function () {
@@ -15,19 +16,31 @@ export default function () {
 
 
   return (
-      <>
-        <div className='card-body'>
-          <p class="font-weight-bold">Дата начала программы:</p>
-          <DayPicker 
-              locale={'ru'}
-              onChange={onChange}
-              value={value}
-          />
+    <>
+      <div>
+        <div className="card">
+            <PurchaseList />
         </div>
- 
-        <div className="card-body">
-        <ChannelSelection />
+
+
+        <div className='card'>
+          <div className="card-header">
+            Выберите дату начала:
+          </div>
+          <div class="card-body">
+              <DayPicker 
+                  // className="col col-md-3"
+                  locale={'ru'}
+                  onChange={onChange}
+                  value={value}
+              />
+            </div>
         </div>
+        
+        <div className='card'>
+          <ChannelSelection />
+        </div>
+      </div>
 {/*                 
         <h5 class="card-title mt-4">Уведомления</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -51,9 +64,11 @@ export default function () {
           </label>
         </div>     */}
 
-      <div className="card-body"> 
-        <a href="#" class="btn btn-success">Сохранить</a>
-      </div>
-      </>
+        <div className='card'>
+          <div className="card-body"> 
+            <a href="#" class="btn btn-success">Сохранить</a>
+          </div>
+        </div>
+    </>
   )
 }
