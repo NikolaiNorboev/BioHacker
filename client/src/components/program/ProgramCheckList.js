@@ -6,7 +6,7 @@ export default function () {
   return (
       <>
         <div>
-          <h5 className="card-title mt-4" > План программы:</h5>
+          <h5 className="card-title mt-4 d-flex justify-content-center" > План программы:</h5>
           <ol className={styles.ol}>
             <li className={styles.li}>Полное сопровождение</li>
             <li className={styles.li}>Календарь приема</li>
