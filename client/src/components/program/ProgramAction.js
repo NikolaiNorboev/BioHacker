@@ -35,9 +35,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>Календарь приема</li>
                 </ul>
-                <buttom type="button" className=" green btn btn-lg btn-block btn-outline-success">
+                <button type="button" className="green btn btn-lg btn-block btn-outline-success">
                   Начать
-                </buttom>
+                </button>
               </div>
 
             </div>
@@ -59,9 +59,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success">
+                <button type="button" className="btn btn-lg btn-block btn-success">
                   Начать
-                </buttom>
+                </button>
               </div>
 
             </div>
@@ -83,9 +83,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много-много-много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success">
+                <button type="button" className="btn btn-lg btn-block btn-success">
                   Подборать
-                </buttom>
+                </button>
               </div>
 
             </div>
