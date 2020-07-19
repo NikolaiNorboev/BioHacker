@@ -26,7 +26,7 @@ export default function Nav() {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <NavLink to="/" className="nav-link">
-              Home
+              Домой
             </NavLink>
           </li>
           <li className="nav-item">
@@ -73,17 +73,17 @@ export default function Nav() {
               </NavLink>
               
               <NavLink className="btn btn-success my-2 my-sm-0" to="/logout">
-                logout
+                Выйти
               </NavLink>
             </>
           )}
           {!isAuthenticated && (
             <>
               <NavLink className="btn btn-success my-2 my-sm-0" to="/signup">
-                Register
+                Регистрация
               </NavLink>
               <NavLink className="btn btn-success my-2 my-sm-0" to="/login">
-                login
+                Войти
               </NavLink>
             </>
           )}

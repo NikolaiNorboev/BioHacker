@@ -12,6 +12,7 @@ import Stepper from './components/Stepper';
 import sessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
 import User from './pages/user';
+import ChannelSelection from './components/ChannelSelection';
 // import Statistic from './components/User/statistic';
 // import Scheduler from './components/User/scheduler';
 // import Settings from './components/User/settings';
@@ -61,6 +62,9 @@ export default function App() {
           </Route> */}
           <Route path="/user">
             <User />
+          </Route>
+          <Route path="/channel">
+            <ChannelSelection />
           </Route>
           <Route path="/">
             <Landing />
