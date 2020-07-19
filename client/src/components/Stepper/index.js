@@ -2,6 +2,7 @@ import React from 'react';
 import StepperH from 'react-stepper-horizontal';
 import { useSelector, useDispatch } from 'react-redux';
 import QuestMain from '../questionnaire/QuestMain';
+import SimpleTest from '../questionnaire/SImpleTest'
 import Program from '../../pages/program';
 import Payment from '../Payment';
 import Statistics from '../Statistics';
@@ -27,7 +28,7 @@ export default function Stepper() {
       />
       <button onClick={() => dispatch(stepMinus())}>Prev</button>
       <button onClick={() => dispatch(stepPlus())}>Next</button>
-      {step===0 && <QuestMain/>}
+      {step===0 && <SimpleTest/>}
       {step===1 && <Program/>}
       {step===2 && <Payment/>}
       {step===3 && <Statistics/>}

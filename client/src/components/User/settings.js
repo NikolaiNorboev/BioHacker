@@ -16,11 +16,11 @@ export default function () {
 
         <h5 class="card-title">Дата начала программы</h5>
 
-          {/* <Calendar locale={'ru'}
+          <Calendar locale={'ru'}
                 style= {{display: "flex", justifyContent:"space-around"}}
                 onChange={onChange}
                 value={value}
-                /> */}
+                />
         <div>
         <DayPicker 
             locale={'ru'}
