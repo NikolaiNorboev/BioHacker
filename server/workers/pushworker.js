@@ -1,6 +1,6 @@
+import dotenv from 'dotenv';
 import ZB from 'zeebe-node';
 import webpush from 'web-push';
-import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -51,7 +51,13 @@ async function handler(job, complete, worker) {
   complete.success(updateToBrokerVariables);
 }
 
-const zbc = new ZB.ZBClient();
+const zbc = new ZB.ZBClient({
+  camundaCloud: {
+    clientId: process.env.ZEEBE_CLIENT_ID,
+    clientSecret: process.env.ZEEBE_CLIENT_SECRET,
+    clusterId: process.env.ZEEBE_CLUSTER_ID,
+  },
+});
 const zbworker = zbc.createWorker('send-push', handler);
 
 export default zbworker;
