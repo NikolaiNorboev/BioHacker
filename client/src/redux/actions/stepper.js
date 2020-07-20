@@ -1,4 +1,4 @@
-import { STEPPLUS, STEPMINUS } from './action-types';
+import { STEPPLUS, STEPMINUS, STEPFOUR } from './action-types';
 
 export function stepPlus () {
   return {
@@ -9,5 +9,11 @@ export function stepPlus () {
 export function stepMinus () {
   return {
     type: STEPMINUS,
+  }
+}
+
+export function stepFour () {
+  return {
+    type: STEPFOUR,
   }
 }
