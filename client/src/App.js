@@ -13,9 +13,6 @@ import sessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
 import User from './pages/user';
 import ChannelSelection from './components/ChannelSelection';
-// import Statistic from './components/User/statistic';
-// import Scheduler from './components/User/scheduler';
-// import Settings from './components/User/settings';
 
 
 
@@ -51,15 +48,6 @@ export default function App() {
           <Route path="/stepper">
             <Stepper />
           </Route>
-          {/* <Route path="/user/statistic">
-            <Statistic />
-          </Route>
-          <Route path="/user/settings">
-            <Settings />
-          </Route>
-          <Route path="/user/scheduler">
-            <Scheduler />
-          </Route> */}
           <Route path="/user">
             <User />
           </Route>

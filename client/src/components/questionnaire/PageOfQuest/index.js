@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAnswer } from '../../../redux/actions/questionnaire';
-import './PageOfQuest.module.scss';
+// import './PageOfQuest.scss';
 
 function PageOfQuest({ qi, getPrev, getNext }) {
   let quest = useSelector(state => state.quest);

@@ -4,7 +4,7 @@ function Benefits() {
   return (
     <>
       <h2 className="text-center mb-4 text-success">
-        3 готовых программы для вашего здоровья
+        Программы для вашего здоровья
       </h2>
       <div class="card-deck">
         <div class="card">
@@ -16,9 +16,9 @@ function Benefits() {
           <div class="card-body">
             <h5 class="card-title text-center">Антистресс</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              Снижение стресса и влияния стресса на организма через систему
+              питания, прием витаминов и комплекс упражнений Длительность курса
+              1 месяц.
             </p>
             <a href="#" class="btn btn-outline-success">
               Подробнее
@@ -30,9 +30,7 @@ function Benefits() {
           <div class="card-body">
             <h5 class="card-title text-center">Детокс</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              Очищение организма от токсинов Длительность курса 3 недели.
             </p>
             <a href="#" class="btn btn-outline-success">
               Подробнее
@@ -48,9 +46,8 @@ function Benefits() {
           <div class="card-body">
             <h5 class="card-title text-center">Витаминизация</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              Наполнение организма необходимыми витаминами и минералами
+              Длительность курса 3 недели.
             </p>
             <a href="#" class="btn btn-outline-success">
               Подробнее
