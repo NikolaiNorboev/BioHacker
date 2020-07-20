@@ -34,7 +34,7 @@ export default function Login() {
       } else if(json.flag === 1) {
         dispatch(stepFour());
         return history.push('/stepper');
-      } else {
+      } else if(json.flag === 2) {
         return history.push('/user');
       }
     }

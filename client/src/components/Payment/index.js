@@ -106,7 +106,7 @@ export default function Payment() {
                             
                   <div className="row">
                     <div className="col-xs-12">
-                       <button className="btn btn-success btn-lg btn-block" type="submit">Оплатить</button>
+                       <button className="btn btn-success btn-lg btn-block" type="submit" onClick={next}>Оплатить</button>
                     </div>
                   </div>
                   

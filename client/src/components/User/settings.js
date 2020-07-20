@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import DayPicker from 'react-date-picker';
 import 'react-day-picker/lib/style.css';
 
@@ -13,8 +14,20 @@ import styles from './purchaseList.module.css';
 
 export default function () {
   const [value, onChange] = useState();
-
-
+  const history = useHistory();
+  const auth = useSelector(state => state.auth);
+  async function toLK() {
+    const response = await fetch('/api/flag', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({id: auth.id}),
+    });
+    if (response.status === 200) {
+      history.push('/user');
+    }
+  }
   return (
     <>
       <div>
@@ -66,7 +79,7 @@ export default function () {
 
         <div className='card'>
           <div className="card-body"> 
-            <a href="#" class="btn btn-success">Сохранить</a>
+            <a href="#" class="btn btn-success" onClick={toLK}>Сохранить</a>
           </div>
         </div>
     </>
