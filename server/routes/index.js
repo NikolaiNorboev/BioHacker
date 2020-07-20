@@ -35,8 +35,8 @@ router
         email,
         password: await argon2.hash(password),
       }).save();
-      return res.status(200).end();
-
+      req.session.user = user;
+      return res.status(200).json({ username: user.username, flag: user.flag, id: user._id });
     } catch (error) {
       console.log(error);
       res.status(401).json({ message: error.message });
@@ -56,8 +56,7 @@ router
       if (user && (await argon2.verify(user.password, password))) {
         req.session.user = user;
         req.session.user.password = undefined;
-        res.json({username: req.session.user.username});
-
+        return res.status(200).json({ username: user.username, flag: user.flag, id: user._id });
       } else if (!user) {
         res.status(401).json({ message: 'Введенный e-mail не зарегистрирован' });
       } else {
