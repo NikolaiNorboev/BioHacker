@@ -1,11 +1,11 @@
 import React from 'react';
 import StepperH from 'react-stepper-horizontal';
 import { useSelector, useDispatch } from 'react-redux';
-import SimpleTest from '../questionnaire/SimpleTest';
-import Program from '../../pages/program';
-import Payment from '../Payment';
-import Settings from '../User/settings';
-import { stepPlus, stepMinus} from '../../redux/actions/stepper';
+import SimpleTest from '../components/questionnaire/SimpleTest';
+import Program from '../components/Stepper/Program';
+import Payment from '../components/Stepper/Payment';
+import Settings from '../components/Stepper/Settings';
+import { stepPlus, stepMinus} from '../redux/actions/stepper';
 
 
 export default function Stepper() {
@@ -17,7 +17,7 @@ export default function Stepper() {
       <StepperH 
       steps={[
         { title: 'Чек-Лист' },
-        { title: 'Описанае программы' },
+        { title: 'Описание программы' },
         { title: 'Оплата' },
         { title: 'Настройка программы' }
       ]} 

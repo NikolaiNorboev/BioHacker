@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Statistic from '../components/User/statistic';
 import Scheduler from '../components/User/scheduler';
-import Settings from '../components/User/settings';
+import Settings from '../components/Stepper/Settings';
 
 export default function () {
   return (

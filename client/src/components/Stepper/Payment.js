@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styles from './payment.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { stepPlus } from '../../redux/actions/stepper';
-{/* <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> */ }
-
 
 export default function Payment() {
   const [price, setPrice] = useState('500');
