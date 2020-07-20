@@ -4,3 +4,4 @@ export const FAILED = 'FAILED';
 export const ANSWERQUEST = 'ANSWERQUEST';
 export const STEPPLUS = 'STEPPLUS';
 export const STEPMINUS = 'STEPMINUS';
+export const STEPFOUR = 'STEPFOUR';

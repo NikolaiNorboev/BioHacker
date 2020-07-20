@@ -23,7 +23,7 @@ function QuestMain(props) {
     <div className="container-fluid">
       <TransitionGroup>
         <CSSTransition
-          timeout={1000}
+          timeout={400}
           classNames="slide"
           key={qi}
         >
