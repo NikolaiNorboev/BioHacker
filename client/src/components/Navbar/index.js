@@ -19,7 +19,7 @@ export default function Nav() {
           alt="carrot"
           loading="lazy"
         ></img>
-        Bio-hacker
+        Biohacker
       </Link>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
