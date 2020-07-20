@@ -21,7 +21,7 @@ function Landing() {
         <Benefits />
         <ColoredLine color="green" />
       </div>
-      <div className="container  my-4">
+      <div className="container my-4">
         <Reviews />
         <ColoredLine color="green" />
       </div>

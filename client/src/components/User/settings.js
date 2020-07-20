@@ -38,7 +38,7 @@ export default function () {
 
         <div className='card'>
           <div className="card-header">
-            Выберите дату начала:
+            Выберите дату старта:
           </div>
           <div class="card-body">
               <DayPicker 
