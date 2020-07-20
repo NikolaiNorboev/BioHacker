@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './programList.module.css';
 import { useDispatch } from 'react-redux';
-import { stepPlus } from '../../redux/actions/stepper'
+import { stepPlus } from '../../redux/actions/stepper';
 
 //  action перед покупкой пррограммы 
 export default function () {
@@ -13,8 +13,8 @@ export default function () {
       <>
       <div className>
         <div className = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-          <h1 className="display-4"> 
-          Осталось выбрать программу:</h1>
+          <h4 className="display-6"> 
+          Осталось выбрать опции:</h4>
           <p className="lead">
             "Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization."</p>
         </div>
@@ -41,9 +41,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>Календарь приема</li>
                 </ul>
-                <buttom type="button" className=" green btn btn-lg btn-block btn-outline-success" onClick={next}>
+                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={next}>
                   Начать
-                </buttom>
+                </button>
               </div>
 
             </div>
@@ -65,9 +65,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
                   Начать
-                </buttom>
+                </button>
               </div>
 
             </div>
@@ -89,9 +89,9 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много-много-много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
                   Подборать
-                </buttom>
+                </button>
               </div>
 
             </div>
