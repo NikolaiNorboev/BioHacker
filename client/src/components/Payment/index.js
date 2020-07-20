@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
-import styles from './payment.module.css'
+import styles from './payment.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { stepPlus } from '../../redux/actions/stepper';
 {/* <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> */ }
 
 
 export default function Payment() {
   const [price, setPrice] = useState('500');
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  async function next() {
+    const response = await fetch('/api/flag', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({id: auth.id}),
+    });
+    if (response.status === 200) {
+      dispatch(stepPlus());
+    }
+  }
   //https://codepen.io/llgruff/pen/JdyJWR
   return (
     <>
@@ -90,7 +106,7 @@ export default function Payment() {
                             
                   <div className="row">
                     <div className="col-xs-12">
-                       <button className="btn btn-success btn-lg btn-block" type="submit">Оплатить</button>
+                       <button className="btn btn-success btn-lg btn-block" type="submit" onClick={next}>Оплатить</button>
                     </div>
                   </div>
                   

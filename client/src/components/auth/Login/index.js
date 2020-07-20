@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../../redux/actions/action-creators';
+import { stepFour } from '../../../redux/actions/stepper';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -27,8 +28,15 @@ export default function Login() {
 
     const json = await response.json();
     if (response.status === 200) {
-      dispatch(getUser(json.username));
-      return history.push('/info');
+      dispatch(getUser(json.username,json.flag, json.id));
+      if(json.flag === 0) {
+        return history.push('/stepper');
+      } else if(json.flag === 1) {
+        dispatch(stepFour());
+        return history.push('/stepper');
+      } else if(json.flag === 2) {
+        return history.push('/user');
+      }
     }
     console.log(json.message);
     return setError(json.message);

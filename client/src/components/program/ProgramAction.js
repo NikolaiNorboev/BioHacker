@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './programList.module.css';
+import { useDispatch } from 'react-redux';
+import { stepPlus } from '../../redux/actions/stepper';
 
 //  action перед покупкой пррограммы
 export default function () {
+  const dispatch = useDispatch();
+  function next() {
+    dispatch(stepPlus());
+  }
   return (
     <>
       <div className>
@@ -33,10 +39,7 @@ export default function () {
                   <li> &nbsp;</li>
                   <li> &nbsp;</li>
                 </ul>
-                <button
-                  type="button"
-                  className="green btn btn-block btn-outline-success"
-                >
+                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={next}>
                   Начать
                 </button>
               </div>
@@ -59,7 +62,7 @@ export default function () {
                   <li className="list-group-item-success">Чат поддержки</li>
                   <li> &nbsp; </li>
                 </ul>
-                <button type="button" className="btn btn-block btn-success">
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
                   Начать
                 </button>
               </div>
@@ -84,8 +87,8 @@ export default function () {
                     1 личная консультация
                   </li>
                 </ul>
-                <button type="button" className="btn btn-block btn-success">
-                  Начать
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
+                  Подборать
                 </button>
               </div>
             </div>

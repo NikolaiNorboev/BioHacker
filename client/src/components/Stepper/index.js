@@ -1,16 +1,17 @@
 import React from 'react';
 import StepperH from 'react-stepper-horizontal';
 import { useSelector, useDispatch } from 'react-redux';
-import QuestMain from '../questionnaire/SimpleTest';
+import SimpleTest from '../questionnaire/SimpleTest';
 import Program from '../../pages/program';
 import Payment from '../Payment';
-import Statistics from '../Statistics';
+import Settings from '../User/settings';
 import { stepPlus, stepMinus} from '../../redux/actions/stepper';
 
 
 export default function Stepper() {
   const dispatch = useDispatch();
-  const step = useSelector(state => state.step)
+  const step = useSelector(state => state.step);
+  
   return (
     <div>
       <StepperH 
@@ -18,7 +19,7 @@ export default function Stepper() {
         { title: 'Чек-Лист' },
         { title: 'Описанае программы' },
         { title: 'Оплата' },
-        { title: 'Личный кабинет' }
+        { title: 'Настройка программы' }
       ]} 
       activeStep={step} 
       completeTitleColor='#757575'
@@ -26,10 +27,10 @@ export default function Stepper() {
       />
       <button onClick={() => dispatch(stepMinus())}>Prev</button>
       <button onClick={() => dispatch(stepPlus())}>Next</button>
-      {step===0 && <QuestMain/>}
+      {step===0 && <SimpleTest/>}
       {step===1 && <Program/>}
       {step===2 && <Payment/>}
-      {step===3 && <Statistics/>}
+      {step===3 && <Settings/>}
     </div>
   );
 
