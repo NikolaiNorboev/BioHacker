@@ -31,7 +31,15 @@ const userSchema = new mongoose.Schema({
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
   fullname: String,
-  chanelOf
+  chanels: [
+    emailBooL: Boolean,
+    phone: Number,
+    phoneBool: Boolean,
+    telegramm: String,
+    telegrammBool: Boolean,
+    push: Object,
+    pushBool: Boolean,
+  ],
 });
 
 
