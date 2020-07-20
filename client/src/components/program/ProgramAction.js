@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './programList.module.css';
+import { useDispatch } from 'react-redux';
+import { stepPlus } from '../../redux/actions/stepper'
 
 //  action перед покупкой пррограммы 
 export default function () {
+  const dispatch = useDispatch();
+  function next() {
+    dispatch(stepPlus());
+  }
   return (
       <>
       <div className>
@@ -35,7 +41,7 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>Календарь приема</li>
                 </ul>
-                <buttom type="button" className=" green btn btn-lg btn-block btn-outline-success">
+                <buttom type="button" className=" green btn btn-lg btn-block btn-outline-success" onClick={next}>
                   Начать
                 </buttom>
               </div>
@@ -59,7 +65,7 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success">
+                <buttom type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
                   Начать
                 </buttom>
               </div>
@@ -83,7 +89,7 @@ export default function () {
                   <li>Календарь приема</li>
                   <li>И много-много-много всего</li>
                 </ul>
-                <buttom type="button" className="btn btn-lg btn-block btn-success">
+                <buttom type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
                   Подборать
                 </buttom>
               </div>

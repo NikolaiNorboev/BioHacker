@@ -161,6 +161,11 @@ function SimpleTest() {
 
   return (
     <div className="component">
+      {flag && <button 
+      type="button" class="btn btn-primary"
+      onClick={() => dispatch(stepPlus())}
+      style={{position: "absolute", top: "200%"}}
+      >Выбор программы</button>}
       <div className="col-md-2 offset-md-4">
       <p>Ответьте пожалуста на вопросы чтобы выбрать пограммы для Вас</p>
         {data.length && data.map(el => {
@@ -174,10 +179,10 @@ function SimpleTest() {
                 </label>
               )
             })} 
+            <br />
             </div> 
           )
         })}
-      {flag && <button type="button" class="btn btn-primary" onClick={() => dispatch(stepPlus())}>Выбор программы</button>}
       </div>
     </div>
   )
