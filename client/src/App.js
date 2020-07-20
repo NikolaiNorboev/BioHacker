@@ -9,6 +9,7 @@ import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
 import Stepper from './components/Stepper';
+import Test from './components/questionnaire/test'
 import sessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
 import User from './pages/user';
@@ -53,6 +54,9 @@ export default function App() {
           </Route>
           <Route path="/channel">
             <ChannelSelection />
+          </Route>
+          <Route path="/quest">
+            <Test />
           </Route>
           <Route path="/">
             <Landing />
