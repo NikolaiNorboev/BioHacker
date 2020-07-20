@@ -20,9 +20,9 @@ function Benefits() {
               питания, прием витаминов и комплекс упражнений Длительность курса
               1 месяц.
             </p>
-            <a href="#" class="btn btn-outline-success">
+            {/* <a href="#" class="btn btn-outline-success">
               Подробнее
-            </a>
+            </a> */}
           </div>
         </div>
         <div class="card">
@@ -32,9 +32,9 @@ function Benefits() {
             <p class="card-text">
               Очищение организма от токсинов Длительность курса 3 недели.
             </p>
-            <a href="#" class="btn btn-outline-success">
+            {/* <a href="#" class="btn btn-outline-success">
               Подробнее
-            </a>
+            </a> */}
           </div>
         </div>
         <div class="card">
@@ -49,9 +49,9 @@ function Benefits() {
               Наполнение организма необходимыми витаминами и минералами
               Длительность курса 3 недели.
             </p>
-            <a href="#" class="btn btn-outline-success">
+            {/* <a href="#" class="btn btn-outline-success">
               Подробнее
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
