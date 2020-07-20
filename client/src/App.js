@@ -11,6 +11,9 @@ import Landing from './pages/landing';
 import Stepper from './components/Stepper';
 import sessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
+import User from './pages/user';
+import ChannelSelection from './components/ChannelSelection';
+
 
 
 export default function App() {
@@ -44,6 +47,12 @@ export default function App() {
           </Route>
           <Route path="/stepper">
             <Stepper />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/channel">
+            <ChannelSelection />
           </Route>
           <Route path="/">
             <Landing />

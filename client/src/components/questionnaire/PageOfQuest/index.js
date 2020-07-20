@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAnswer } from '../../../redux/actions/questionnaire';
-import './PageOfQuest.scss';
+// import './PageOfQuest.scss';
 
 function PageOfQuest({ qi, getPrev, getNext }) {
   let quest = useSelector(state => state.quest);
@@ -18,33 +18,40 @@ function PageOfQuest({ qi, getPrev, getNext }) {
           thisQ.type == 'radio' ? { ...one, questionAnswer: false } : one
       )
     })
-    if (thisQ.type == 'radio') {
-      // setThisQ({...thisQ, data: newData});
-      console.log(newData);
-    }
     quest = quest.map(sec => {
       return (
         sec.questionIndex === thisQ.questionIndex ? { ...sec, data: newData, isAswer: true } : sec
-      )
-    });
-    // console.log(quest);
-    dispatch(getAnswer(quest));
+        )
+      });
+      // console.log(quest);
+      dispatch(getAnswer(quest));
+    if (thisQ.type == 'radio') {
+      setThisQ({...thisQ, data: newData, isAswer: true });
+      console.log(thisQ);
+    }
   }
 
   return (
     <div className="container">
-      <div className="d-flex flex-column justify-content-center">
+      <div className="col-md-6 offset-md-2">
         <div>
-          <p className="question__count">{qi + 1}/{quest.length}</p>
-          <h3 className="question__text">{thisQ.questionText}</h3>
-          <img className="question__img" src={thisQ.image} alt="alt" />
+          <p className="question__count" style={{fontSize: "18px", fontWeight: "bold", fontFamily: "sansSerif", color: 'grey', opacity: '0.4'}}>{qi + 1}/{quest.length}</p>
+          <p className="question__text" style={{fontSize: "22px"}}>{thisQ.questionText}</p>
+          <img claxssName="question__img" src={thisQ.image} alt="alt" style={{width: 'auto',
+            maxWidth: '100%',
+            maxHeight: '220px',
+            display: 'block',
+            paddingLeft: '1.5rem',
+            paddingRight: '1.5rem',
+            margin: 'auto',
+            marginTop: '2rem'}} />
         </div>
         <div class="btn-group-vertical">
           {thisQ.data && thisQ.data.map(second => {
             return (
               <p key={second.key} className="questionLi">
-                <span className="question__option">{second.questionOption}</span>
-                <label className="btn btn-light">
+                <label className="btn btn-light" style={{fontSize: "18px"}}>
+                  {second.questionOption} 
                   <input className="questionInput" type='checkbox'
                     defaultChecked={second.questionAnswer}
                     onChange={() => getAns(second.key)} />
@@ -52,11 +59,11 @@ function PageOfQuest({ qi, getPrev, getNext }) {
               </p>
             )
           })}
-          <div class="btn-group-vertical">
-            {flag && <button onClick={getPrev} className="btn btn-outline-primary">
+          <div class="btn-group" >
+            {flag && <button onClick={getPrev} className="btn btn-outline-secondary btn-lg">
               Previos</button>}
-            {thisQ.isAswer && <button onClick={getNext} className="btn btn-outline-info">{
-              quest.length === qi + 1 ? "Result" : "Next"}</button>}
+            {thisQ.isAswer && <button onClick={getNext} className="btn btn-outline-info btn-lg" style={{minWidth: '100px'}}>{
+              quest.length === qi + 1 ? "Result" : "  Next  "}</button>}
           </div>
         </div>
       </div>
