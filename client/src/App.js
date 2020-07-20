@@ -4,16 +4,16 @@ import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
-import Info from './components/Info';
-import Program from './pages/program';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Landing from './pages/landing';
-import Stepper from './components/Stepper';
-import Test from './components/questionnaire/test'
-import sessionChecker from './components/hooks/auth-hook';
-import Thankyou from './components/program/Thankyou';
+import Stepper from './pages/stepper';
 import User from './pages/user';
+import sessionChecker from './components/hooks/auth-hook';
 import ChannelSelection from './components/ChannelSelection';
+
+import Info from './components/Info';
+import Program from './components/Stepper/Program';
+import Thankyou from './components/program/Thankyou';
 
 
 

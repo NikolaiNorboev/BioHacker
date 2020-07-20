@@ -1,43 +1,48 @@
-/* body { margin:50px auto; width:600px;} */
+.new_body { 
+  margin:50px auto;
+  width:400px;
+  border: 1px
+}
 
 /* CSS for Credit Card Payment form */
-.credit-card-box .panel-title {
+.credit_card_box .panel_title {
     display: inline;
+    font-size: medium;
     font-weight: bold;
 }
-.credit-card-box .form-control.error {
+.credit_card_box .form_control.error {
     border-color: red;
     outline: 0;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
 }
-.credit-card-box label.error {
+.credit_card_box label.error {
   font-weight: bold;
   color: red;
   padding: 2px 8px;
   margin-top: 2px;
 }
-.credit-card-box .payment-errors {
+.credit_card_box .payment_errors {
   font-weight: bold;
   color: red;
   padding: 2px 8px;
   margin-top: 2px;
 }
-.credit-card-box label {
+.credit_card_box label {
     display: block;
 }
 /* The old "center div vertically" hack */
-.credit-card-box .display-table {
+.credit_card_box .display_table {
     display: table;
 }
-.credit-card-box .display-tr {
+.credit_card_box .display_tr {
     display: table-row;
 }
-.credit-card-box .display-td {
+.credit_card_box .display_td {
     display: table-cell;
     vertical-align: middle;
     width: 50%;
 }
 /* Just looks nicer */
-.credit-card-box .panel-heading img {
+.credit_card_box .panel_heading img {
     min-width: 180px;
 }

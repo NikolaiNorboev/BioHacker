@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import ChannelSelection from '../ChannelSelection';
+import PurchaseList from '../program/purchaseList'
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
 import DayPicker from 'react-date-picker';
 import 'react-day-picker/lib/style.css';
 
-import ChannelSelection from '../ChannelSelection';
-import PurchaseList from '../User/purchaseList'
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import styles from './purchaseList.module.css';
-
 
 export default function () {
   const [value, onChange] = useState();
   const history = useHistory();
   const auth = useSelector(state => state.auth);
+
   async function toLK() {
     const response = await fetch('/api/flag', {
       method: 'POST',
@@ -38,7 +38,7 @@ export default function () {
 
         <div className='card'>
           <div className="card-header">
-            Выберите дату начала:
+            Выберите дату старта:
           </div>
           <div class="card-body">
               <DayPicker 

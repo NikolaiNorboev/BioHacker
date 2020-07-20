@@ -8,7 +8,7 @@ export default function () {
         <div>
 
           <div class="card-header">
-            Список добавок/витаминов подобранных для вас:
+            Вам будет доставлен следующий набор на месяц:
             {/* <h5 className="card-title mt-4 d-flex justify-content-center"> Список добавок/витаминов подобранных для вас: </h5> */}
           </div>
 

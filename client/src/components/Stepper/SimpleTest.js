@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './SimpleTest.module.css';
+// import './SimpleTest.module.css';
 import { useDispatch } from 'react-redux';
 import { stepPlus } from '../../redux/actions/stepper';
 

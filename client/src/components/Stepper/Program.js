@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import ProgramVideo from '../components/program/ProgramVideo';
-import ProgramCheckList from '../components/program/ProgramCheckList';
-import ProgramAction from '../components/program/ProgramAction';
-import ProgramCalendar from '../components/program/ProgramCalendar';
-import ProgramPayment from '../components/program/ProgramPayment';
-import VideoPlayer from '../components/VideoPlayer';
+import ProgramVideo from '../program/ProgramVideo';
+import ProgramCheckList from '../program/ProgramCheckList';
+import ProgramAction from '../program/ProgramAction';
+import ProgramCalendar from '../program/ProgramCalendar';
+import ProgramPayment from '../program/ProgramPayment';
+import VideoPlayer from '../VideoPlayer';
 
 export default function () {
   const [name, setName] = useState('Detox');
