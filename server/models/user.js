@@ -30,16 +30,35 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
-  fullname: String,
-  chanels: [
-    emailBooL: Boolean,
-    phone: Number,
-    phoneBool: Boolean,
-    telegramm: String,
-    telegrammBool: Boolean,
-    push: Object,
-    pushBool: Boolean,
-  ],
+  fullnmae: {
+    type: String,
+    trim: true,
+  },
+  DOB: Date,
+  Cards: [{
+    key: String,
+    cardNumber: Number,
+    cardHolder: String,
+    cardLive: Number,
+  }],
+  address: [{
+    key: String,
+    ZIP: Number,
+    state: String,
+    city: String,
+    street: String,
+    building: String,
+    appartament: String,
+  }],
+  chanelOfInfo: [{
+    email: Boolean,
+    phone: Boolean,
+    phoneNumber: Number,
+    telegram: Boolean,
+    telegramUsername: String,
+    pushMessage: Boolean,
+    pushKey: Object,
+  }],
 });
 
 
