@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch } from 'react-redux';
+import { getUser } from '../../../redux/actions/auth';
 
 
 export default function Signup() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [inputs, setInputs] = useState({
+    fullname: '',
     username: '',
     email: '',
     password: '',
@@ -25,7 +29,9 @@ export default function Signup() {
     });
 
     if (response.status === 200) {
-      return history.push('/login');
+      const json = await response.json();
+      dispatch(getUser(json.username, json.flag, json.id));
+      return history.push('/stepper');
     }
     const json = await response.json();
     return setError(json.message);
@@ -48,7 +54,7 @@ export default function Signup() {
           <Form.Label>Полное имя</Form.Label>
           <Form.Control
             type="text"
-            name="username"
+            name="fullname"
             required
             value={inputs.fullname}
             onChange={changed}
