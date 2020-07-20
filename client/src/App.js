@@ -4,15 +4,13 @@ import Nav from './components/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
-import Program from './pages/program';
+import Program from './components/Stepper/Program';
 import SessionRoute from './components/auth/SessionRoute';
 import Landing from './pages/landing';
-import Stepper from './components/Stepper';
-// import useSessionChecker from './components/hooks/auth-hook';
 import Thankyou from './components/program/Thankyou';
+import Stepper from './pages/stepper';
 import User from './pages/user';
 import ChannelSelection from './components/ChannelSelection';
-
 
 
 export default function App() {
