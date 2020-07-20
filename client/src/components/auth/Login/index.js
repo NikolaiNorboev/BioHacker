@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../../../redux/actions/auth';
+import { getUser } from '../../../redux/actions/action-creators';
 import { stepFour } from '../../../redux/actions/stepper';
 
 export default function Login() {

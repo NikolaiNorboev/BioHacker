@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { stepPlus } from '../../redux/actions/stepper'
-import styles from './payment.module.css'
+// import styles from './payment.module.css'
 {/* <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> */ }
 
 
