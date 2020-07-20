@@ -15,7 +15,7 @@ router
     res.end();
   })
   .post(async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, fullname } = req.body;
     // Проверка уникальности username и email вручную
     try {
       const errUnqUser = await User.isUserUnique(username);
@@ -25,12 +25,13 @@ router
       };
     } catch (error) {
       console.log(error);
-      res.status(401).json({ message: error.message });
+      return res.status(401).json({ message: error.message });
     };
 
     // username и email вручную
     try {
       await new User({
+        fullname,
         username,
         email,
         password: await argon2.hash(password),
@@ -39,7 +40,7 @@ router
       return res.status(200).json({ username: user.username, flag: user.flag, id: user._id });
     } catch (error) {
       console.log(error);
-      res.status(401).json({ message: error.message });
+      return res.status(401).json({ message: error.message });
     }
   });
 
