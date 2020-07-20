@@ -94,4 +94,15 @@ router.get('/checkSession', (req, res) => {
   res.status(401).end();
 });
 
+router.post('/flag', async (req, res) => {
+  const { id } = req.body;
+  try {
+    await User.findByIdAndUpdate(id, { flag: 1 });
+    res.status(200).end();
+  } catch (e) {
+    console.log(e.message);
+    res.status(401).json({ message: e.message });
+  }
+});
+
 export default router;
