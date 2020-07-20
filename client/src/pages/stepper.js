@@ -1,7 +1,7 @@
 import React from 'react';
 import StepperH from 'react-stepper-horizontal';
 import { useSelector, useDispatch } from 'react-redux';
-import SimpleTest from '../components/questionnaire/SimpleTest';
+import SimpleTest from '../components/Stepper/SimpleTest';
 import Program from '../components/Stepper/Program';
 import Payment from '../components/Stepper/Payment';
 import Settings from '../components/Stepper/Settings';
