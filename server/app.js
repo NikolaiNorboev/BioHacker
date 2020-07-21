@@ -1,4 +1,6 @@
+/* eslint-disable import/extensions */
 import express from 'express';
+import path from 'path';
 import useMiddleware from './middleware/index.js';
 import errorHandlers from './middleware/error-handlers.js';
 import indexRouter from './routes/index.js';
@@ -7,6 +9,8 @@ import courseRouter from './routes/course.js';
 import serviceWorkerRoute from './routes/serviceWorker.js';
 
 const app = express();
+
+app.use(express.static(path.resolve('../client/build/')));
 
 useMiddleware(app);
 
@@ -18,5 +22,10 @@ app.use(serviceWorkerRoute);
 
 // Обработка несуществующих запросов
 errorHandlers(app);
+
+// Для того чтобы работали все роуты в React приложении
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('../client/build/index.html'));
+});
 
 export default app;

@@ -1,11 +1,14 @@
 {
-  "name": "auth",
+  "name": "biohacker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Biohacker web application",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": "node server/server.js",
-    "build": "yarn && cd client && yarn build"
+    "start": "cd server && yarn && yarn start",
+    "build": "cd client && yarn && yarn build"
   },
   "keywords": [],
   "author": "",
