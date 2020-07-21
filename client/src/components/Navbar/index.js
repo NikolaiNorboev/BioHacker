@@ -40,8 +40,8 @@ export default function Nav() {
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" to="/quest">
-              Quest
+            <NavLink className="nav-link" to="/schedule">
+              Schedule
             </NavLink>
           </li>
         </ul>

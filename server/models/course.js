@@ -14,13 +14,23 @@ const courseSchema = new mongoose.Schema({
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
   description: String,
-  statistics: [{
-    date: String,
+  events: [{
+    start: String, // new Date(01.08.20 14:00),
+    end: String, // new Date(01.08.20 14:00)
+    title: String,
     result: {
+      type: Number,
+      default: 0,
+    },
+    allDay: {
       type: Boolean,
       default: false,
     },
   }],
+  currentEvent: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export default mongoose.model('Course', courseSchema);
