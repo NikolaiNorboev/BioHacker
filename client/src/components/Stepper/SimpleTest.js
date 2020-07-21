@@ -162,7 +162,7 @@ function SimpleTest() {
   return (
     <div className="component">
       {flag && <button 
-      type="button" class="btn btn-primary"
+      type="button" className="btn btn-primary"
       onClick={() => dispatch(stepPlus())}
       style={{position: "absolute", top: "200%"}}
       >Выбор программы</button>}
@@ -174,7 +174,7 @@ function SimpleTest() {
             <p>{el.question}</p>
             {el.options.length && el.options.map(one => {
               return (
-                <label class="btn btn btn-outline-success" ket={one.index}>
+                <label className="btn btn btn-outline-success" ket={one.index}>
                   <input type="radio" checked={one.isChecked} onClick={() => checkRadio(el.key, one.index)}/> {one.text}
                 </label>
               )

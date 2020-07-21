@@ -4,15 +4,15 @@ function Reviews() {
   return (
     <>
       <h2 className="text-center text-success">Отзывы</h2>
-      <ul class="list-unstyled">
-        <li class="media">
+      <ul className="list-unstyled">
+        <li className="media">
           <img
             src="/img/rsz_person1.jpg"
-            class="mr-3 rounded-circle"
+            className="mr-3 rounded-circle"
             alt="..."
           />
-          <div class="media-body">
-            <h5 class="mt-0 mb-1">Максим Малышев</h5>
+          <div className="media-body">
+            <h5 className="mt-0 mb-1">Максим Малышев</h5>
             Прошел программу Антистресс от Biohacker. Ребята, огромное вам
             спасибо! У ребят отличный контент, грамотно структурированная
             полезная информация. Много практики, антистресс методик. Нашел для
@@ -22,14 +22,14 @@ function Reviews() {
             появилась энергия на свой стартап.
           </div>
         </li>
-        <li class="media my-4">
+        <li className="media my-4">
           <img
             src="/img/rsz_person2.jpg"
-            class="mr-3 rounded-circle"
+            className="mr-3 rounded-circle"
             alt="..."
           />
-          <div class="media-body">
-            <h5 class="mt-0 mb-1">Светлана Чернова</h5>Я поняла, что апатия и
+          <div className="media-body">
+            <h5 className="mt-0 mb-1">Светлана Чернова</h5>Я поняла, что апатия и
             упадок сил – это не норма, равно как и постоянная тяга к сладкому!
             Проходили Детокс от Biohacker всей семьей для моральной поддержки.
             Хотя поддержки от команды Biohacker было много, и программа так
@@ -38,14 +38,14 @@ function Reviews() {
             реже, у меня вообще нет тяги к сладкому, кожа выровнялась.
           </div>
         </li>
-        <li class="media">
+        <li className="media">
           <img
             src="/img/rsz_person3.jpg"
-            class="mr-3 rounded-circle"
+            className="mr-3 rounded-circle"
             alt="..."
           />
-          <div class="media-body">
-            <h5 class="mt-0 mb-1">Анастасия Викторовна</h5>
+          <div className="media-body">
+            <h5 className="mt-0 mb-1">Анастасия Викторовна</h5>
             Раньше пила БАДы и никаких улучшений не было. Пошла на курс
             Витаминизация, чтобы понять, что не так делаю. Энергия была на нуле,
             голова постоянно болела, раздражалась по пустякам. Благодаря курсу

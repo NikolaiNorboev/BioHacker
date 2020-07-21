@@ -40,7 +40,7 @@ export default function () {
           <div className="card-header">
             Выберите дату старта:
           </div>
-          <div class="card-body">
+          <div className="card-body">
               <DayPicker 
                   // className="col col-md-3"
                   locale={'ru'}
@@ -55,31 +55,31 @@ export default function () {
         </div>
       </div>
 {/*                 
-        <h5 class="card-title mt-4">Уведомления</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <h5 className="card-title mt-4">Уведомления</h5>
+        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
         
         <div className="centercheck">
           <input type="checkbox" name=""></input> */}
         {/* </div> */}
 {/* 
-        <div class="btn-group-toggle" data-toggle="buttons">
+        <div className="btn-group-toggle" data-toggle="buttons">
           Push-уведомления:
-          <label class="btn btn-secondary active">
+          <label className="btn btn-secondary active">
             <input type="checkbox" checked/> Checked
           </label>
           По e-mail:
-          <label class="btn btn-secondary  ">
+          <label className="btn btn-secondary  ">
             <input type="checkbox"/> Checked
           </label>
           В telegram:
-          <label class="btn btn-secondary  ">
+          <label className="btn btn-secondary  ">
             <input type="checkbox"/> Checked
           </label>
         </div>     */}
 
         <div className='card'>
           <div className="card-body"> 
-            <a href="#" class="btn btn-success" onClick={toLK}>Сохранить</a>
+            <a href="#" className="btn btn-success" onClick={toLK}>Сохранить</a>
           </div>
         </div>
     </>

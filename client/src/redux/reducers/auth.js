@@ -1,7 +1,7 @@
 import { AUTHENTICATED_SUCCESSFULLY, LOGOUT } from '../actions/action-types';
 
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case AUTHENTICATED_SUCCESSFULLY:
       return {

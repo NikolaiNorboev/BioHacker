@@ -46,7 +46,7 @@ function PageOfQuest({ qi, getPrev, getNext }) {
             margin: 'auto',
             marginTop: '2rem'}} />
         </div>
-        <div class="btn-group-vertical">
+        <div className="btn-group-vertical">
           {thisQ.data && thisQ.data.map(second => {
             return (
               <p key={second.key} className="questionLi">
@@ -59,7 +59,7 @@ function PageOfQuest({ qi, getPrev, getNext }) {
               </p>
             )
           })}
-          <div class="btn-group" >
+          <div className="btn-group" >
             {flag && <button onClick={getPrev} className="btn btn-outline-secondary btn-lg">
               Previos</button>}
             {thisQ.isAswer && <button onClick={getNext} className="btn btn-outline-info btn-lg" style={{minWidth: '100px'}}>{

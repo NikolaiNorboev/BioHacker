@@ -14,7 +14,7 @@ function ActionForm() {
             Начни действовать сейчас! Нужен всего один шаг.
           </h3>
           <div className="mx-auto mt-5" style={{ width: '200px' }}>
-            <Link class="btn btn-success" to="/signup" role="button">
+            <Link className="btn btn-success" to="/signup" role="button">
               Зарегистрироваться
             </Link>
           </div>

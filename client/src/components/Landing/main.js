@@ -16,7 +16,7 @@ function main() {
           <Link
             to="/signup"
             type="button"
-            class="btn btn-success flex-end mx-4 mb-1"
+            className="btn btn-success flex-end mx-4 mb-1"
           >
             Зарегистрироваться
           </Link>
@@ -27,7 +27,7 @@ function main() {
           alt="human-nature"
         />
       </div>
-      <div class="col-md-12 col-lg-12" />
+      <div className="col-md-12 col-lg-12" />
     </>
   );
 }
