@@ -10,7 +10,7 @@ import Stepper from './pages/stepper';
 import User from './pages/user';
 import sessionChecker from './components/hooks/auth-hook';
 import ChannelSelection from './components/ChannelSelection';
-
+import Test from './components/questionnaire/test'
 import Info from './components/Info';
 import Program from './components/Stepper/Program';
 import Thankyou from './components/program/Thankyou';
