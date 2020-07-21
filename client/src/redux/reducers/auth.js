@@ -6,7 +6,9 @@ export default (state = {}, action) => {
     case AUTHENTICATED_SUCCESSFULLY:
       return {
         isAuthenticated: true,
-        username: action.username
+        username: action.username,
+        flag: action.flag,
+        id: action.id,
       };
     case LOGOUT:
       return {
