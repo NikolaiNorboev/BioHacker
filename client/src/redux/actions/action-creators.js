@@ -9,9 +9,11 @@ export function failedUser(err) {
   }
 }
 
-export function getUser(username) {
+export function getUser(username, flag, id) {
   return {
     type: AUTHENTICATED_SUCCESSFULLY,
     username,
+    flag,
+    id
   }
 }

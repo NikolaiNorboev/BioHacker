@@ -6,50 +6,54 @@ function Benefits() {
       <h2 className="text-center mb-4 text-success">
         Программы для вашего здоровья
       </h2>
-      <div class="card-deck">
-        <div class="card">
+      <div className="card-deck">
+        <div className="card">
           <img
             src="./img/nostress-mini.jpg"
-            class="card-img-top"
+            className="card-img-top"
             alt="Антистресс"
           />
-          <div class="card-body">
-            <h5 class="card-title text-center">Антистресс</h5>
-            <p class="card-text">
-              Снижение стресса и влияния стресса на организма через систему
-              питания, прием витаминов и комплекс упражнений Длительность курса
-              1 месяц.
+          <div className="card-body">
+            <h5 className="card-title text-center">Антистресс</h5>
+            <p className="card-text">
+              Снижение стресса через систему питания, прием витаминов и комплекс
+              упражнений
+              <br />
+              <i> Длительность курса 1 месяц </i>
             </p>
-            {/* <a href="#" class="btn btn-outline-success">
+            {/* <a href="#" className="btn btn-outline-success">
               Подробнее
             </a> */}
           </div>
         </div>
-        <div class="card">
-          <img src="/img/detox.jpg" class="card-img-top" alt="Детокс" />
-          <div class="card-body">
-            <h5 class="card-title text-center">Детокс</h5>
-            <p class="card-text">
-              Очищение организма от токсинов Длительность курса 3 недели.
-            </p>
-            {/* <a href="#" class="btn btn-outline-success">
+        <div className="card">
+          <img src="/img/detox.jpg" className="card-img-top" alt="Детокс" />
+          <div className="card-body">
+            <h5 className="card-title text-center">Детокс</h5>
+            <p className="card-text">Очищение организма от токсинов</p>
+            <div>
+              <i>Длительность курса 3 недели</i>
+            </div>
+            {/* <a href="#" className="btn btn-outline-success">
               Подробнее
             </a> */}
           </div>
         </div>
-        <div class="card">
+        <div className="card">
           <img
             src="/img/vitamins2.jpg"
-            class="card-img-top"
+            className="card-img-top"
             alt="Витаминизация"
           />
-          <div class="card-body">
-            <h5 class="card-title text-center">Витаминизация</h5>
-            <p class="card-text">
+          <div className="card-body">
+            <h5 className="card-title text-center">Витаминизация</h5>
+            <p className="card-text">
               Наполнение организма необходимыми витаминами и минералами
-              Длительность курса 3 недели.
             </p>
-            {/* <a href="#" class="btn btn-outline-success">
+            <div>
+              <i>Длительность курса 3 недели</i>
+            </div>
+            {/* <a href="#" className="btn btn-outline-success">
               Подробнее
             </a> */}
           </div>

@@ -88,7 +88,7 @@ export default function () {
                   </li>
                 </ul>
                 <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
-                  Подборать
+                  Начать
                 </button>
               </div>
             </div>

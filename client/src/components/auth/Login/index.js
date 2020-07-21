@@ -28,7 +28,7 @@ export default function Login() {
 
     const json = await response.json();
     if (response.status === 200) {
-      dispatch(getUser(json.username,json.flag, json.id));
+      dispatch(getUser(json.username, json.flag, json.id));
       if(json.flag === 0) {
         return history.push('/stepper');
       } else if(json.flag === 1) {

@@ -19,7 +19,7 @@ export default function Nav() {
           alt="carrot"
           loading="lazy"
         ></img>
-        Bio-hacker
+        Biohacker
       </Link>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,7 +53,7 @@ export default function Nav() {
                   width="1.5em"
                   height="1.5em"
                   viewBox="0 0 16 16"
-                  class="bi bi-person-circle"
+                  className="bi bi-person-circle"
                   fill="white"
                   xmlns="http://www.w3.org/2000/svg"
                   className="mx-2"
@@ -68,7 +68,7 @@ export default function Nav() {
                     d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
                   />
                 </svg>
-                {/* <span class="navbar-text mx-2">{username}</span> */}
+                {/* <span className="navbar-text mx-2">{username}</span> */}
                 {username}
               </NavLink>
               

@@ -15,7 +15,7 @@ const store = createStore(
     step: stepperReducer,
   }),
   // initialState,
-  [],
+  {},
   composeWithDevTools()
 );
 

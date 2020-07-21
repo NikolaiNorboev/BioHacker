@@ -37,7 +37,7 @@ export default function Payment() {
           <img className="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png"/>
         </div>
 
-        <div class="card-body">
+        <div className="card-body">
           <div className="row">
             <div className="col-md-6 mb-3">
               <label htmlFor="cardNumber">НОМЕР КАРТЫ</label>

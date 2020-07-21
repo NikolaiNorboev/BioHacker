@@ -90,7 +90,7 @@ function ChannelSelection() {
         Выберете удобный для Вас способ получения уведомлений:
       </div>
 
-      <div class="card-body">
+      <div className="card-body">
         <div className="form-check">
           <input
             className="form-check-input"

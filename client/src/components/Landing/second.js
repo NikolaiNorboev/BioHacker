@@ -3,28 +3,26 @@ import React from 'react';
 function Second() {
   return (
     <>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4 text-center">
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-4 text-center">
             Как город влияет на наше здоровье?
           </h1>
-          <p class="lead mt-4 text-justify">
+          <p className="lead mt-4 text-justify">
             <strong> ПОСТОЯННЫЙ СТРЕСС </strong> Раздражительность Апатия
-            Аллергия Акне Дерматит Псориаз Пигментация{' '}
-            <strong> ЭКОЛОГИЯ </strong>
-            Землистый цвет лица Темные круги под глазами Отеки Запоры Тошнота
-            Тонзиллит Стоматит Синусит Зуд в глазах
-            <strong> НЕПРАВИЛЬНОЕ ПИТАНИЕ </strong> Диарея Тяга к сладкому
-            Лишний вес Постоянная усталось Плохая память Тревожность Страхи
-            Астма Бронхит Молочница ПМС Частые орви Аутоиммуные заболевания
-            Гипотериоз Гепатоз печени Длительное восстановление после физической
-            нагрузки
+            Аллергия Акне Дерматит Псориаз Пигментация Землистый цвет лица
+            Темные круги под глазами <strong> ЭКОЛОГИЯ </strong>Отеки Запоры
+            Тошнота Тонзиллит Стоматит Синусит Зуд в глазах Диарея Тяга к
+            сладкому Лишний вес Постоянная усталось Плохая память Тревожность
+            Страхи Астма Бронхит Молочница ПМС Частые орви Аутоиммуные
+            заболевания Гипотериоз <strong> НЕПРАВИЛЬНОЕ ПИТАНИЕ </strong>
+            Гепатоз печени Длительное восстановление после физической нагрузки
             {/* <p className="ml-4">
               <svg
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
-                class="bi bi-arrow-right mr-4"
+                className="bi bi-arrow-right mr-4"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -44,7 +42,7 @@ function Second() {
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
-                class="bi bi-arrow-right mr-4"
+                className="bi bi-arrow-right mr-4"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -64,7 +62,7 @@ function Second() {
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
-                class="bi bi-arrow-right mr-4"
+                className="bi bi-arrow-right mr-4"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
