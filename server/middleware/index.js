@@ -27,7 +27,7 @@ export default function (app) {
       resave: false,
       saveUninitialized: false,
       cookie: {
-        expires: 6000000,
+        expires: 31 * 24 * 60 * 60 * 1000,
       },
     }),
   );

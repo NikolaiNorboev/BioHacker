@@ -9,8 +9,9 @@ router
   .get(async (req, res) => {
     let course;
     try {
-      course = await Course.findOne({_id: req.session.user._id});
+      course = await Course.findOne({user: req.session.user._id});
       // если курс существует, возвращаем по нему информацию
+      // console.log(course);
       if (course) return res.json({course});
       // если курс не начат - сообщаем об этом
       res.status(401).json({message: 'у Вас нет активных курсов'});
