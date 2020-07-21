@@ -5,8 +5,11 @@ import styles from './main.module.css';
 function main() {
   return (
     <>
-      <div className="container d-flex  my-4 justify-content-center">
-        <div className="bg-light d-flex flex-column justify-content-around">
+      <div className="container d-flex justify-content-center">
+        <div
+          className="d-flex flex-column justify-content-around"
+          style={{ backgroundColor: '#CFBBA0' }}
+        >
           <h1 className="d-flex mt-1 align-items-center justify-content-center text-center user-select-none">
             Cформируйте привычку быть здоровым
           </h1>

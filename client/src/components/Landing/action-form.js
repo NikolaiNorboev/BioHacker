@@ -8,11 +8,11 @@ function ActionForm() {
       <div className="jumbotron jumbotron-fluid ">
         <div className="container ">
           <h1 className="display-4 text-center">
-            Не откладывайте на потом свое здоровье.
+            Не откладывай на потом свое здоровье.
           </h1>
-          <p className="lead text-center">
+          <h3 className="lead text-center mt-4">
             Начни действовать сейчас! Нужен всего один шаг.
-          </p>
+          </h3>
           <div className="mx-auto mt-5" style={{ width: '200px' }}>
             <Link class="btn btn-success" to="/signup" role="button">
               Зарегистрироваться

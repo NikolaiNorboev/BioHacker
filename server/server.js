@@ -3,7 +3,7 @@ import http from 'http';
 import app from './app.js';
 
 // Zeebe workers
-// import './workers/pushworker.js';
+import './workers/pushworker.js';
 
 const port = process.env.PORT ?? 3001;
 

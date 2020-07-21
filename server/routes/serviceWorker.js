@@ -12,8 +12,8 @@ route.post('/subscribe', async (req, res) => {
   // TODO: Добавить сохранение в БД ключей от пушей клиента
 
   // start process
-  // const result = await startPocess(subscription);
-  // console.log(result);
+  const result = await startPocess(subscription);
+  console.log(result);
   res.status(201).json({});
 });
 
