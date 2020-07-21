@@ -6,8 +6,9 @@ import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Program from './components/Stepper/Program';
 import SessionRoute from './components/auth/SessionRoute';
-import Landing from './pages/landing';
 import Thankyou from './components/program/Thankyou';
+import Statistics from './components/Statistics';
+import Landing from './pages/landing';
 import Stepper from './pages/stepper';
 import User from './pages/user';
 import ChannelSelection from './components/ChannelSelection';
@@ -44,6 +45,9 @@ export default function App() {
           </SessionRoute>
           <SessionRoute path="/channel">
             <ChannelSelection />
+          </SessionRoute>
+          <SessionRoute path="/schedule">
+            <Statistics />
           </SessionRoute>
           <SessionRoute exact path="/">
             <Landing />
