@@ -12,13 +12,13 @@ async function startProcess(name, program, pushKey, auth, endpoint) {
       clusterId: process.env.ZEEBE_CLUSTER_ID,
     },
   });
-  const result = await zbc.createWorkflowInstance('Process_1jbwj1x', {
+  const result = await zbc.createWorkflowInstance('Process_1t43jbm', {
     name,
     program,
     pushKey,
     auth,
     endpoint,
-    channel: 'push',
+    channel: 'email',
   });
   return result;
 }
