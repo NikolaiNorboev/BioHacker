@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
+  flag: Number,
   fullnmae: {
     type: String,
     trim: true,
