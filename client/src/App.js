@@ -23,18 +23,18 @@ export default function App() {
       <Router>
         <Nav />
         <Switch>
-          <SessionRoute path="/signup">
+          <Route path="/signup">
             <Signup />
-          </SessionRoute>
-          <SessionRoute path="/login">
+          </Route>
+          <Route path="/login">
             <Login />
-          </SessionRoute>
+          </Route>
           <SessionRoute path="/logout">
             <Logout />
           </SessionRoute>
-          <Route path="/program">
+          <SessionRoute path="/program">
             <Program />
-          </Route>
+          </SessionRoute>
           <SessionRoute path="/thankYou">
             <Thankyou />
           </SessionRoute>
@@ -53,9 +53,9 @@ export default function App() {
           <SessionRoute path="/chart">
             <ClientChart />
           </SessionRoute>
-          <SessionRoute exact path="/">
+          <Route exact path="/">
             <Landing />
-          </SessionRoute>
+          </Route>
         </Switch>
         <Chat/>
       </Router>
