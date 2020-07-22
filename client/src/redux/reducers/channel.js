@@ -24,20 +24,21 @@ export default (state = {}, action) => {
         ...state,
         telegramUserName: action.telegramUserName,
       }
-    case SET_PUSH_INFO: 
-      return {
-        ...state,
-        pushSubscription: {
-          ...state.pushSubscription,
-          endpoint: action.pushSubscription.endpoint, 
-          expirationTime: action.pushSubscription.expirationTime, 
-          keys: {
-            ...state.pushSubscription.keys,
-            p256dh: action.pushSubscription.keys.p256dh ,
-            auth: action.pushSubscription.keys.auth
-          }
-        }
-      }
+    // case SET_PUSH_INFO: 
+    //   return {
+    //     ...state,
+    //     pushSubscription: {
+    //       ...state.pushSubscription,
+    //       endpoint: action.pushSubscription.endpoint, 
+    //       expirationTime: action.pushSubscription.expirationTime, 
+    //       keys: {
+    //         ...state.pushSubscription.keys,
+    //         p256dh: action.pushSubscription.keys.p256dh ,
+    //         auth: action.pushSubscription.keys.auth
+    //       }
+    //     }
+    //   }
+
     default:
       return state;
   }

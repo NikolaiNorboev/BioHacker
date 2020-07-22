@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  DOB: Date,
+  DOB: String,
   Cards: [{
     key: String,
     cardNumber: Number,
@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
     telegram: { type: Boolean, default: false },
     telegramUsername: { type: String, default: '' },
     pushMessage: { type: Boolean, default: false },
-    pushKey: Object,
+    pushKey: { type: Object },
   },
 });
 

@@ -117,6 +117,8 @@ router.post('/settings', async (req, res) => {
   let email;
   let telegram;
   let pushMessage;
+  const STDATE = startDate(startDate.getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, '');
+  console.log(`date --> `, STDATE);
 
   function setChannelFlags(channelType) {
     if (channelType === 'email') return (email = true, telegram = false, pushMessage = false );
@@ -133,8 +135,6 @@ router.post('/settings', async (req, res) => {
       'chanelOfInfo.telegram': `${telegram}`,
       'chanelOfInfo.telegramUsername': `${telegramUserName}`,
       'chanelOfInfo.pushMessage': `${pushMessage}`,
-      'chanelOfInfo.pushKey': `${pushSubscription}`,
-      // chanelOfInfo.pushKey: Object,
     });
 
     res.status(200).end();
