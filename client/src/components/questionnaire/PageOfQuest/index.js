@@ -37,14 +37,14 @@ function PageOfQuest({ qi, getPrev, getNext }) {
         <div>
           <p className="question__count" style={{fontSize: "18px", fontWeight: "bold", fontFamily: "sansSerif", color: 'grey', opacity: '0.4'}}>{qi + 1}/{quest.length}</p>
           <p className="question__text" style={{fontSize: "22px"}}>{thisQ.questionText}</p>
-          <img claxssName="question__img" src={thisQ.image} alt="alt" style={{width: 'auto',
+          {/* <img claxssName="question__img" src={thisQ.image} alt="alt" style={{width: 'auto',
             maxWidth: '100%',
             maxHeight: '220px',
             display: 'block',
             paddingLeft: '1.5rem',
             paddingRight: '1.5rem',
             margin: 'auto',
-            marginTop: '2rem'}} />
+            marginTop: '2rem'}} /> */}
         </div>
         <div className="btn-group-vertical">
           {thisQ.data && thisQ.data.map(second => {
