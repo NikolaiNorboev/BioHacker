@@ -1,4 +1,5 @@
 import express from 'express';
+import { sessionChecker } from '../middleware/auth.js';
 import Course from '../models/course.js';
 
 
@@ -6,7 +7,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(async (req, res) => {
+  .get(sessionChecker('http://localhost:3000/login'), async (req, res) => {
     let course;
     try {
       course = await Course.findOne({user: req.session.user._id});
@@ -21,7 +22,7 @@ router
       return res.status(401).json({message: error.message})
     };
   })
-  .post(async (req, res) => {
+  .post(sessionChecker('http://localhost:3000/login'), async (req, res) => {
     const course = new Course({
       user: req.session.user,
       program: '',
@@ -37,7 +38,7 @@ router
       res.status(401).json({message: error.message})
     };
   })
-  .patch(async (req, res) => {
+  .patch(sessionChecker('http://localhost:3000/login'), async (req, res) => {
     // фиксируем дисциплину курса (статистика приема лекарств)
     let course;
     try {
@@ -52,7 +53,7 @@ router
       return res.status(401).json({message: error.message})
     };
   })
-  .delete(async (req, res) => {
+  .delete(sessionChecker('http://localhost:3000/login'), async (req, res) => {
     // удаление курса
     let course;
     try {

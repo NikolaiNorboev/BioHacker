@@ -7,6 +7,7 @@ import { getUser } from '../../../redux/actions/action-creators';
 
 export default function SessionRoute({children, ...rest}) {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     (async () => {
@@ -25,12 +26,10 @@ export default function SessionRoute({children, ...rest}) {
     })();
     // useSessionChecker();
   })
-  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return (
     <Route {...rest}>
-      {children}
-      {/* {isAuthenticated && <Redirect to="/login" />} */}
+      {isAuthenticated ? children : <Redirect to="/login" />}
     </Route>
   );
 }
