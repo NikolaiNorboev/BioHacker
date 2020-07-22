@@ -1,3 +1,5 @@
+import argon2 from 'argon2';
+import User from '../models/user.js';
 import d from 'debug';
 import passport from 'passport';// Simple and elegant authentication library for node.js.
 import GStrategy from 'passport-google-oauth';
@@ -33,12 +35,21 @@ export default function (app) {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log(profile.displayName);
-      done(null, profile.displayName);
-      },
+    async (req, accessToken, refreshToken, profile, done) => {
+      let user = await User.findOne({ email: profile.emails[0].value });
+      if (user === null) {
+        user = await new User({
+          google: profile.id,
+          username: profile.displayName,
+          email: profile.emails[0].value,
+          password: await argon2.hash(''),
+          gender: profile._json.gender,
+          flag: 0,
+        }).save();
+      }
+      done(null, user);
+    },
   ));
-  
 
   // Sign in with Yandex
   passport.use(new YandexStrategy(
@@ -47,10 +58,7 @@ export default function (app) {
       clientSecret: process.env.YANDEX_CLIENT_SECRET,
       callbackURL: "/auth/yandex/callback",
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log(profile);
-      done(null, profile.displayName);
-      },
+    (accessToken, refreshToken, profile, done) => done(null, profile.displayName),
   ));
   
 

@@ -91,12 +91,6 @@ router.get('/checkSession', (req, res) => {
       flag: req.session.user.flag,
       id: req.session.user._id,
     });
-  } if (req.session.passport) {
-    return res.json({
-      username: req.session.passport.user,
-      flag: req.session.passport.flag,
-      id: req.session.passport._id,
-    });
   }
   res.status(401).end();
 });

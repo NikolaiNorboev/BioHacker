@@ -13,6 +13,7 @@ import Stepper from './pages/stepper';
 import User from './pages/user';
 import ChannelSelection from './components/ChannelSelection';
 import ClientChart from './components/ClientChart';
+import Chat from './components/Chat';
 
 export default function App() {
   // useSessionChecker();
@@ -56,6 +57,7 @@ export default function App() {
             <Landing />
           </SessionRoute>
         </Switch>
+        <Chat/>
       </Router>
     </>
   );

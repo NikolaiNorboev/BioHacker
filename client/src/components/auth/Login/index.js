@@ -28,6 +28,7 @@ export default function Login() {
 
     const json = await response.json();
     if (response.status === 200) {
+      console.log('>>>>>>>>', json.username, json.flag, json.id);
       dispatch(getUser(json.username, json.flag, json.id));
       if(json.flag === 0) {
         return history.push('/stepper');
@@ -50,12 +51,11 @@ export default function Login() {
       [name]: value,
     });
   }
-  const googleAuth = () => window.open('http://localhost:3001/auth/google');
+  const googleAuth = () => window.location = 'http://localhost:3001/auth/google';
   const yandexAuth = () => window.open('http://localhost:3001/auth/yandex');
   const facebookAuth = () => window.open('http://localhost:3001/auth/facebook');
   const twitterAuth = () => window.open('http://localhost:3001/auth/twitter');
-  const instagramAuth = () =>
-    window.open('http://localhost:3001/auth/instagram');
+  const instagramAuth = () => window.open('http://localhost:3001/auth/instagram');
   const LinkedInAuth = () => window.open('http://localhost:3001/auth/linkedin');
   const SteamAuth = () => window.open('http://localhost:3001/auth/steam');
   const GitHubAuth = () => window.open('http://localhost:3001/auth/github');
