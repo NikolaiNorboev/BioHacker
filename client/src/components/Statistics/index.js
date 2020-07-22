@@ -1,7 +1,9 @@
 // http://jquense.github.io/react-big-calendar/examples/index.html#intro
 import React, {useEffect, useState} from 'react';
-import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
+import { Calendar, momentLocalizer, Navigate, Views } from 'react-big-calendar';
+import TimeGrid from 'react-big-calendar/lib/TimeGrid';
 import moment from 'moment';
+import * as dates from 'date-arithmetic';
 import 'moment/locale/ru';  // without this line it didn't work
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -179,15 +181,24 @@ export default function Statistics({  }) {
       <Calendar
         localizer={localizer}
         events={course.events}
-        step={15}
+        step={240}
         drilldownView='day'
         // view='month'
         defaultView={Views.AGENDA}
-        // defaultDate={new Date(2020, 6, 22)}
-        defaultDate={course.startDate}
+        defaultDate={new Date(2020, 6, 22)}
+        // defaultDate={course.startDate}
+        views={{ month: true, week: MyWeek, day: true, agenda: true }}
         // views={'month', 'work_week', 'week', 'day', 'agenda'}
-        min={new Date(2020, 6, 22, 7, 0)} // 8.00 AM
-        max={new Date(2020, 6, 22, 20, 0)} // Max will be 6.00 PM!
+        min={new Date(2020, 6, 22, 6, 0)} // 8.00 AM
+        max={new Date(2020, 6, 22, 21, 0)} // Max will be 6.00 PM!
+        // dayPropGetter={customDayPropGetter}
+        // slotPropGetter={customSlotPropGetter}
+        components={{
+          event: Event,
+          agenda: {
+            event: EventAgenda,
+          },
+        }}
         // showMultiDayTimes
         // popup
         // timeslots={8}
@@ -203,19 +214,95 @@ export default function Statistics({  }) {
 function eventStyleGetter(event, start, end, isSelected) {
   // const backgroundColor = '#' + event.hexColor;
   const style = {
-      backgroundColor: "lightblue",
-      borderRadius: '0px',
-      opacity: 0.8,
-      color: 'black',
-      border: '0px',
-      display: 'block'
+      backgroundColor: 'beige',
+      // borderRadius: '0px',
+      // opacity: 0.8,
+      color: 'steelblue',
+      // border: '0px',
+      // display: 'block'
   };
   if (event.result === 1) {
-    style.backgroundColor = "#3174ad";
+    style.backgroundColor = "lightgreen";
+    style.color = "black";
   } else if (event.result === 2) {
-    style.backgroundColor = "pink";
+    style.backgroundColor = "salmon";
+    style.color = "yellow";
   };
   return {
       style: style
   };
+}
+
+function Event({ event }) {
+  return (
+    <span>
+      <strong>{event.title}</strong>
+      {event.desc && ':  ' + event.desc}
+    </span>
+  )
+}
+
+function EventAgenda({ event }) {
+  return (
+    <span>
+      <em >{event.title}</em>
+      <p>{event.desc}</p>
+    </span>
+  )
+}
+// style={{ color: 'steelblue' }}
+const customDayPropGetter = date => {
+  if (date.getDate() === 7 || date.getDate() === 15)
+    return {
+      className: 'special-day',
+      style: {
+        border: 'solid 3px ' + (date.getDate() === 7 ? '#faa' : '#afa'),
+      },
+    }
+  else return {}
+}
+
+const customSlotPropGetter = date => {
+  if (date.getDate() === 3 || date.getDate() === 5)
+    return {
+      className: 'special-day',
+    }
+  else return {}
+}
+
+function MyWeek(props) {
+    let range = MyWeek.range(props.date)
+
+    return <TimeGrid {...props} range={range} eventOffset={15} />
+}
+
+MyWeek.range = date => {
+  let start = date
+  let end = dates.add(start, 2, 'day')
+
+  let current = start
+  let range = []
+
+  while (dates.lte(current, end, 'day')) {
+    range.push(current)
+    current = dates.add(current, 1, 'day')
+  }
+
+  return range
+}
+
+MyWeek.navigate = (date, action) => {
+  switch (action) {
+    case Navigate.PREVIOUS:
+      return dates.add(date, -3, 'day')
+
+    case Navigate.NEXT:
+      return dates.add(date, 3, 'day')
+
+    default:
+      return date
+  }
+}
+MyWeek.title = date => {
+  return `Nikolay's week: ${date.toLocaleDateString()}`
 }
