@@ -88,17 +88,21 @@ router.get('/checkSession', (req, res) => {
   if (req.session.user) {
     return res.json({
       username: req.session.user.username,
+      flag: req.session.user.flag,
+      id: req.session.user._id,
     });
   } if (req.session.passport) {
     return res.json({
       username: req.session.passport.user,
+      flag: req.session.passport.flag,
+      id: req.session.passport._id,
     });
   }
   res.status(401).end();
 });
 
 router.post('/flag', async (req, res) => {
-  const { id } = req.body;
+  const { id, flag } = req.body;
   try {
     await User.findByIdAndUpdate(id, { flag: 1 });
     res.status(200).end();
@@ -107,5 +111,38 @@ router.post('/flag', async (req, res) => {
     res.status(401).json({ message: e.message });
   }
 });
+
+router.post('/settings', async (req, res) => {
+  const { id, channelType, startDate, telegramUserName } = req.body;
+  let email;
+  let telegram;
+  let pushMessage;
+
+  function setChannelFlags(channelType) {
+    if (channelType === 'email') return (email = true);
+    if (channelType === 'telegram') return telegram = true;
+    if (channelType === 'push') return pushMessage = true;
+  }
+
+  setChannelFlags(channelType);
+  try {
+    await User.findByIdAndUpdate(id, {
+      chanelOfInfo: [{
+        email: `${email}`,
+        telegram: `${telegram}`,
+        telegramUsername: `${telegramUserName}`,
+        pushMessage: `${pushMessage}`,
+        // phone: Boolean,
+        // phoneNumber: Number,
+        // pushKey: Object,
+      }],
+    });
+    res.status(200).end();
+  } catch (e) {
+    console.log(e.message);
+    res.status(401).json({ message: e.message });
+  }
+});
+
 
 export default router;
