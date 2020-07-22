@@ -119,9 +119,9 @@ router.post('/settings', async (req, res) => {
   let pushMessage;
 
   function setChannelFlags(channelType) {
-    if (channelType === 'email') return (email = true);
-    if (channelType === 'telegram') return telegram = true;
-    if (channelType === 'push') return pushMessage = true;
+    if (channelType === 'email') return (email = true, telegram = false, pushMessage = false );
+    if (channelType === 'telegram') return (email = false, telegram = true, pushMessage = false );
+    if (channelType === 'push') return (email = false, telegram = false, pushMessage = true );
   }
 
   setChannelFlags(channelType);

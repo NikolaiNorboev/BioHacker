@@ -51,13 +51,13 @@ const userSchema = new mongoose.Schema({
     appartament: String,
   }],
   chanelOfInfo: {
-    email: { type: Boolean, dafault: false },
-    phone: { type: Boolean, dafault: false },
-    phoneNumber: { type: Number, dafault: null },
-    telegram: { type: Boolean, dafault: false },
-    telegramUsername: { type: String, dafault: '' },
-    pushMessage: { type: Boolean, dafault: false },
-    pushKey: Object,
+    email: { type: Boolean, default: false },
+    phone: { type: Boolean, default: false },
+    phoneNumber: { type: Number, default: null },
+    telegram: { type: Boolean, default: false },
+    telegramUsername: { type: String, default: '' },
+    pushMessage: { type: Boolean, default: false },
+    // pushKey: Object,
   },
 });
 
