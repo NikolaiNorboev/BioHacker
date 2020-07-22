@@ -50,6 +50,7 @@ function ChannelSelection() {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY),
     });
+    console.log(subscription);
 
     // Send push notification
     await fetch('/subscribe', {
@@ -92,6 +93,7 @@ function ChannelSelection() {
             type="radio"
             name="channel"
             id="email"
+            checked = {isChannel('email')}
           />
           <label className="form-check-label" htmlFor="email">
             E-mail
@@ -108,6 +110,7 @@ function ChannelSelection() {
             type="radio"
             name="channel"
             id="push"
+            checked = {isChannel('push')}
           />
           <label className="form-check-label" htmlFor="push">
             Push-уведомления
@@ -128,6 +131,7 @@ function ChannelSelection() {
             type="radio"
             name="channel"
             id="telegram"
+            checked = {isChannel('telegram')}
           />
           <label className="form-check-label" htmlFor="telegram">
             Telegram бот

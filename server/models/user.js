@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 // import Post from './posts.js';
 
-
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -51,19 +50,18 @@ const userSchema = new mongoose.Schema({
     building: String,
     appartament: String,
   }],
-  chanelOfInfo: [{
-    email: Boolean,
-    phone: Boolean,
-    phoneNumber: Number,
-    telegram: Boolean,
-    telegramUsername: String,
-    pushMessage: Boolean,
+  chanelOfInfo: {
+    email: { type: Boolean, dafault: false },
+    phone: { type: Boolean, dafault: false },
+    phoneNumber: { type: Number, dafault: null },
+    telegram: { type: Boolean, dafault: false },
+    telegramUsername: { type: String, dafault: '' },
+    pushMessage: { type: Boolean, dafault: false },
     pushKey: Object,
-  }],
+  },
 });
 
-
-userSchema.static('isUserUnique', async function(username) {
+userSchema.static('isUserUnique', async function (username) {
   const user = await this.findOne({ username });
 
   if (user) {

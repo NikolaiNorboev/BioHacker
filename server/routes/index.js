@@ -125,18 +125,17 @@ router.post('/settings', async (req, res) => {
   }
 
   setChannelFlags(channelType);
+
   try {
     await User.findByIdAndUpdate(id, {
-      chanelOfInfo: [{
-        email: `${email}`,
-        telegram: `${telegram}`,
-        telegramUsername: `${telegramUserName}`,
-        pushMessage: `${pushMessage}`,
-        // phone: Boolean,
-        // phoneNumber: Number,
-        // pushKey: Object,
-      }],
+      DOB: `${startDate}`,
+      'chanelOfInfo.email': `${email}`,
+      'chanelOfInfo.telegram': `${telegram}`,
+      'chanelOfInfo.telegramUsername': `${telegramUserName}`,
+      'chanelOfInfo.pushMessage': `${pushMessage}`,
+      // chanelOfInfo.pushKey: Object,
     });
+
     res.status(200).end();
   } catch (e) {
     console.log(e.message);
