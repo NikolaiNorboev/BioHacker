@@ -5,9 +5,17 @@ const router = express.Router();
 
 
 // Google authentication
-router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
-router.get('/google/callback', passport.authenticate('google'),
-(req, res) => res.redirect('http://localhost:3000'));
+router.get('/google', passport.authenticate('google', {scope: 'profile email'}));
+router.get('/google/callback', passport.authenticate('google'), (req, res) => {
+  if (req.user) req.session.user = req.user;
+  if(req.session.user.flag === 0) {
+    res.redirect('http://localhost:3000/stepper');
+  } else if(req.session.user.flag === 1) {
+    res.redirect('http://localhost:3000/stepper');
+  } else if(req.session.user.flag === 2) {
+    res.redirect('http://localhost:3000/user');
+  }
+});
 
 router.get('/yandex', passport.authenticate('yandex', { scope: ['profile'] }));
 router.get('/yandex/callback', passport.authenticate('yandex'),

@@ -34,8 +34,8 @@ export default function (app) {
 
   app.use((req, res, next) => {
 
-    if (req.session.user) {
-      res.locals.userName = req.session.user.username;
+    if (!req.session.user) {
+      // return res.status(401).end();
     }
     next();
   });

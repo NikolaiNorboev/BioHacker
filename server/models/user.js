@@ -30,10 +30,12 @@ const userSchema = new mongoose.Schema({
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
   flag: Number,
-  fullnmae: {
+  gender: String,
+  fullname: {
     type: String,
     trim: true,
   },
+  google: Number,
   DOB: Date,
   Cards: [{
     key: String,
