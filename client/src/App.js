@@ -12,7 +12,7 @@ import Landing from './pages/landing';
 import Stepper from './pages/stepper';
 import User from './pages/user';
 import ChannelSelection from './components/ChannelSelection';
-
+import ClientChart from './components/ClientChart';
 
 export default function App() {
   // useSessionChecker();
@@ -48,6 +48,9 @@ export default function App() {
           </SessionRoute>
           <SessionRoute path="/schedule">
             <Statistics />
+          </SessionRoute>
+          <SessionRoute path="/chart">
+            <ClientChart />
           </SessionRoute>
           <SessionRoute exact path="/">
             <Landing />

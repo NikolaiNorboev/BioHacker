@@ -10,6 +10,10 @@ const programSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  baseCost: {
+    type: Number,
+    required: true,
+  },
   duration: {
     type: Number,
     required: true,
@@ -31,10 +35,10 @@ const programSchema = new mongoose.Schema({
       quantityOneTime: Number,
       medicationPerDay: Number,
     },
+    linkToCart: {
+      type: String,
+    },
   }],
-  linkToCart: {
-    type: String,
-  },
 });
 programSchema.static('generateEvents', async function (date, program_id) {
   const events = [];
