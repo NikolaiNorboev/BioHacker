@@ -106,7 +106,7 @@ import Course from '../models/course.js';
         },
         {
           title: 'Yaodjity комплекс №8',
-          description: 'Экстракт женьшеняБ элеутерококка и зеленого чая',
+          description: 'Экстракт женьшеня элеутерококка и зеленого чая',
           brand: 'Japan',
           dosage: {
             quantityOneTime: 2,
@@ -215,22 +215,22 @@ import Course from '../models/course.js';
       ],
     },
   );
-  await Program.insertMany(programList).catch((error) => console.log(error));
+  // await Program.insertMany(programList).catch((error) => console.log(error));
 
-  // const coursesList = [];
-  // programList[0]._id = '5f1705e0b80c6bc5e8c72d6e';
-  // coursesList.push(
-  //   new Course({
-  //     user: '5f15cefaa01ce63af06abacb',
-  //     program: programList[0]._id,
-  //     date: {
-  //       type: String,
-  //       default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
-  //     },
-  //     description: 'тестовый курс для администратора сайта',
-  //     events: await Program.generateEvents(new Date().setHours(0, 0, 0, 0), programList[0]._id),
-  //   }),
-  // );
+  const coursesList = [];
+  programList[0]._id = '5f17f184c380e82577d811e2';
+  coursesList.push(
+    new Course({
+      user: '5f15cefaa01ce63af06abacb',
+      program: programList[0]._id,
+      date: {
+        type: String,
+        default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
+      },
+      description: 'тестовый курс для администратора сайта',
+      events: await Program.generateEvents(new Date().setHours(0, 0, 0, 0), programList[0]._id),
+    }),
+  );
 
-  // await Course.insertMany(coursesList).catch((error) => console.log(error));
+  await Course.insertMany(coursesList).catch((error) => console.log(error));
 })();
