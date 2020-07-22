@@ -1,4 +1,4 @@
-import { SET_CHANNEL, SET_DATE, SET_TELEGRAM_NAME } from '../actions/action-types';
+import { SET_CHANNEL, SET_DATE, SET_TELEGRAM_NAME, SET_PUSH_INFO } from '../actions/action-types';
 
 // const initial = {
 //   userId: '',
@@ -23,6 +23,20 @@ export default (state = {}, action) => {
       return {
         ...state,
         telegramUserName: action.telegramUserName,
+      }
+    case SET_PUSH_INFO: 
+      return {
+        ...state,
+        pushSubscription: {
+          ...state.pushSubscription,
+          endpoint: action.pushSubscription.endpoint, 
+          expirationTime: action.pushSubscription.expirationTime, 
+          keys: {
+            ...state.pushSubscription.keys,
+            p256dh: action.pushSubscription.keys.p256dh ,
+            auth: action.pushSubscription.keys.auth
+          }
+        }
       }
     default:
       return state;
