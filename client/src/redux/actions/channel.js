@@ -1,4 +1,4 @@
-import { SET_CHANNEL, SET_DATE, SET_TELEGRAM_NAME } from './action-types';
+import { SET_CHANNEL, SET_DATE, SET_TELEGRAM_NAME, SET_PUSH_INFO } from './action-types';
 
 export function setChannel( channelType) {
   return {
@@ -18,5 +18,12 @@ export function setTelegramName(telegramUserName) {
   return {
     type: SET_TELEGRAM_NAME,
     telegramUserName,
+  }
+}
+
+export function setPushInfo(pushSubscription) {
+  return {
+    type: SET_PUSH_INFO,
+    pushSubscription,
   }
 }

@@ -113,7 +113,7 @@ router.post('/flag', async (req, res) => {
 });
 
 router.post('/settings', async (req, res) => {
-  const { id, channelType, startDate, telegramUserName } = req.body;
+  const { id, channelType, startDate, telegramUserName, pushSubscription } = req.body;
   let email;
   let telegram;
   let pushMessage;
@@ -133,6 +133,7 @@ router.post('/settings', async (req, res) => {
       'chanelOfInfo.telegram': `${telegram}`,
       'chanelOfInfo.telegramUsername': `${telegramUserName}`,
       'chanelOfInfo.pushMessage': `${pushMessage}`,
+      'chanelOfInfo.pushKey': `${pushSubscription}`,
       // chanelOfInfo.pushKey: Object,
     });
 
@@ -142,6 +143,5 @@ router.post('/settings', async (req, res) => {
     res.status(401).json({ message: e.message });
   }
 });
-
 
 export default router;

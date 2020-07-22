@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setChannel, setTelegramName } from '../../redux/actions/channel';
+import { setChannel, setTelegramName, setPushInfo } from '../../redux/actions/channel';
 
 
 function ChannelSelection() {
@@ -8,6 +8,7 @@ function ChannelSelection() {
   const channelType = useSelector(state => state.channel.channelType);
   const telegramUserName = useSelector(state => state.channel.telegramUserName);
   // const userId = useSelector(state => state.auth.id);
+  // const subscription = useSelector(state => state.channel.pushSubscription);
 
   // checkboxes
   const inputHandler = (event) => {
@@ -50,7 +51,8 @@ function ChannelSelection() {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY),
     });
-    console.log(subscription);
+
+    // dispatch(setPushInfo(subscription));
 
     // Send push notification
     await fetch('/subscribe', {

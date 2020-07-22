@@ -53,6 +53,7 @@ export default function () {
         startDate: channel.startDate,
         channelType: channel.channelType,
         telegramUserName: channel.telegramUserName,
+        pushSubscription: channel.pushSubscription,
       }),
     });
   }

@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
     telegram: { type: Boolean, default: false },
     telegramUsername: { type: String, default: '' },
     pushMessage: { type: Boolean, default: false },
-    // pushKey: Object,
+    pushKey: Object,
   },
 });
 
