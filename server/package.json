@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "fuser -n tcp -k 3000; clear; nodemon server.js --ignore sessions",
     "seed": "node ./seed/seeder.js",
-    "start": "clear; node server.js"
+    "start": "clear; node server.js --experimental-modules"
   },
   "dependencies": {
     "argon2": "^0.26.2",
