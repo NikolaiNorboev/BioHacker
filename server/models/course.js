@@ -26,6 +26,7 @@ const courseSchema = new mongoose.Schema({
       type: Boolean,
       default: false,
     },
+    shortUrl: String,
   }],
   currentEvent: {
     type: Number,

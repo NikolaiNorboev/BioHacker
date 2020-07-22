@@ -30,6 +30,7 @@
     "passport-twitter": "^1.0.4",
     "passport-yandex": "^0.0.5",
     "session-file-store": "^1.4.0",
+    "uuid": "^8.2.0",
     "web-push": "^3.4.4",
     "zeebe-node": "^0.23.3"
   },

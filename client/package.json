@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.0",
     "bootstrap-icons": "^1.0.0-alpha5",
+    "date-arithmetic": "^4.1.0",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "rc-steps": "^4.0.1",
