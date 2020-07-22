@@ -2,11 +2,14 @@ import React from 'react';
 import styles from './programList.module.css';
 import { useDispatch } from 'react-redux';
 import { stepPlus } from '../../redux/actions/stepper';
+import { setPrice } from '../../redux/actions/program';
+
 
 //  action перед покупкой пррограммы
 export default function () {
   const dispatch = useDispatch();
-  function next() {
+  function next(price) {
+    dispatch(setPrice(price));
     dispatch(stepPlus());
   }
   return (
@@ -39,7 +42,7 @@ export default function () {
                   <li> &nbsp;</li>
                   <li> &nbsp;</li>
                 </ul>
-                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={next}>
+                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={() => next(500)}>
                   Начать
                 </button>
               </div>
@@ -62,7 +65,7 @@ export default function () {
                   <li className="list-group-item-success">Чат поддержки</li>
                   <li> &nbsp; </li>
                 </ul>
-                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(1000)}>
                   Начать
                 </button>
               </div>
@@ -87,7 +90,7 @@ export default function () {
                     1 личная консультация
                   </li>
                 </ul>
-                <button type="button" className="btn btn-lg btn-block btn-success" onClick={next}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(3000)}>
                   Начать
                 </button>
               </div>

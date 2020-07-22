@@ -9,3 +9,4 @@ export const SET_CHANNEL = 'SET_CHANNEL';
 export const SET_DATE = 'SET_DATE';
 export const SET_TELEGRAM_NAME = 'SET_TELEGRAM_NAME';
 export const SET_PUSH_INFO = 'SET_PUSH_INFO';
+export const SET_PRICE = 'SET_PRICE';
