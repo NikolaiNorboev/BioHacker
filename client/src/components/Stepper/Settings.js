@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ChannelSelection from '../ChannelSelection';
 import PurchaseList from '../program/purchaseList'
 // import Calendar from 'react-calendar';
@@ -6,28 +6,61 @@ import PurchaseList from '../program/purchaseList'
 import DayPicker from 'react-date-picker';
 import 'react-day-picker/lib/style.css';
 
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { setDate } from '../../redux/actions/channel';
 
-import styles from './purchaseList.module.css';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+// import styles from './purchaseList.module.css';
 
 export default function () {
-  const [value, onChange] = useState();
   const history = useHistory();
   const auth = useSelector(state => state.auth);
+  const channel = useSelector(state => state.channel);
 
-  async function toLK() {
-    const response = await fetch('/api/flag', {
+  const dispatch = useDispatch();
+
+  function saveAndGoToLK() {
+
+    const responseSettings = setSettings();
+    const responseFlag =  setFlag();
+
+    if (responseSettings.status === 200 && responseFlag.status === 200 ) {
+      history.push('/user');
+    }
+  }
+
+  async function setFlag() {
+    return await fetch('/api/flag', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id: auth.id}),
+      body: JSON.stringify({
+        id: auth.id,
+      }),
     });
-    if (response.status === 200) {
-      history.push('/user');
-    }
   }
+
+  async function setSettings() {
+    return await fetch('/api/settings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: auth.id,
+        startDate: channel.startDate,
+        channelType: channel.channelType,
+        telegramUserName: channel.telegramUserName,
+      }),
+    });
+  }
+
+  function setDateHandler(date) {
+    dispatch(setDate(date));
+  }
+
   return (
     <>
       <div>
@@ -43,9 +76,9 @@ export default function () {
           <div className="card-body">
               <DayPicker 
                   // className="col col-md-3"
+                  onChange={setDateHandler}
                   locale={'ru'}
-                  onChange={onChange}
-                  value={value}
+                  value={channel.startDate}
               />
             </div>
         </div>
@@ -54,32 +87,11 @@ export default function () {
           <ChannelSelection />
         </div>
       </div>
-{/*                 
-        <h5 className="card-title mt-4">Уведомления</h5>
-        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-        <div className="centercheck">
-          <input type="checkbox" name=""></input> */}
-        {/* </div> */}
-{/* 
-        <div className="btn-group-toggle" data-toggle="buttons">
-          Push-уведомления:
-          <label className="btn btn-secondary active">
-            <input type="checkbox" checked/> Checked
-          </label>
-          По e-mail:
-          <label className="btn btn-secondary  ">
-            <input type="checkbox"/> Checked
-          </label>
-          В telegram:
-          <label className="btn btn-secondary  ">
-            <input type="checkbox"/> Checked
-          </label>
-        </div>     */}
+
 
         <div className='card'>
           <div className="card-body"> 
-            <a href="#" className="btn btn-success" onClick={toLK}>Сохранить</a>
+            <a href="#" className="btn btn-success" onClick={saveAndGoToLK}>Сохранить</a>
           </div>
         </div>
     </>

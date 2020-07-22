@@ -1,33 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setChannel, setTelegramName } from '../../redux/actions/channel';
+import { setChannel } from '../../redux/actions/channel';
 
 
 function ChannelSelection() {
   const dispatch = useDispatch();
-  const channelType = useSelector(state => state.channel.channelType);
-  const telegramUserName = useSelector(state => state.channel.telegramUserName);
-  // const userId = useSelector(state => state.auth.id);
+  const channel = useSelector(state => state.channel);
+  
+  // default state for replacment checkboxes
+  const type = {
+    email: false,
+    push: false,
+    telegram: false,
+  };
+
+  // telegram userName value
+  const [telegram, setTelegram] = useState('');
+
+  // channel state
+  const [channelType, setChannelType] = useState({
+    email: false,
+    push: false,
+    telegram: false,
+  });
 
   // checkboxes
-  const inputHandler = (event) => {
-    const newChannel = event.target.id;
-    if (event.target.id === 'push') {
+  const inputHandler = (e) => {
+    const event = e;
+    const newCheckBox = {
+      ...type,
+      [event.target.name]: event.target.checked,
+    };
+    setChannelType(newCheckBox);
+    if (event.target.name === 'push') {
       pushCheckBoxHandler();
     }
-    dispatch(setChannel(newChannel));
   };
 
   // telegram input handler
-  function telegramHandler(event) {
-    const telegramUserName = event.target.value;
-    dispatch(setTelegramName(telegramUserName));
+  function telegramHandler(e) {
+    setTelegram(e.target.value);
   }
-
-  function isChannel(channel) {
-    return (channel === channelType);
-  }
-
 
   // push subscription logic
   function pushCheckBoxHandler() {
@@ -88,53 +101,45 @@ function ChannelSelection() {
         <div className="form-check">
           <input
             className="form-check-input"
-            onClick={inputHandler}
-            type="radio"
-            name="channel"
+            onChange={inputHandler}
+            type="checkbox"
+            name="email"
             id="email"
+            checked={channelType.email}
           />
           <label className="form-check-label" htmlFor="email">
             E-mail
           </label>
-          { isChannel('email') &&
-            <p className="card-text"><small className="text-muted">Мы отправим вам email, пожалуйста подтвердите подписку</small></p>
-            }
         </div>
 
         <div className="form-check">
           <input
             className="form-check-input"
             onClick={inputHandler}
-            type="radio"
-            name="channel"
+            type="checkbox"
+            name="push"
             id="push"
+            value={telegram}
+            checked={channelType.push}
           />
           <label className="form-check-label" htmlFor="push">
             Push-уведомления
           </label>
-          { isChannel('push') &&
-            <p className="card-text">
-              <small className="text-muted">
-              Разрешите, пожалуйста, браузеру отправлять вам уведомления
-              </small>
-            </p>
-            }
         </div>
         
         <div className="form-check">
           <input
             className="form-check-input"
-            onClick={inputHandler}
-            type="radio"
-            name="channel"
+            onChange={inputHandler}
+            type="checkbox"
+            name="telegram"
             id="telegram"
+            checked={channelType.telegram}
           />
           <label className="form-check-label" htmlFor="telegram">
             Telegram бот
           </label>
-          
-
-          { isChannel('telegram') && (
+          {channelType.telegram && (
             <div className="mt-2 row w-50">
               <div className="input-group flex-nowrap col-auto">
                 <div className="input-group-prepend">
@@ -150,17 +155,8 @@ function ChannelSelection() {
                   placeholder="Имя пользователя в Telegram"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  defaultValue = {telegramUserName}
-                  value = {telegramUserName}
-
                 />
               </div>
-              <p className="card-text">
-                <small className="text-muted">
-                Подпишитесь, пожалуйста, на нашего бота --> t.me 
-                </small>
-              </p>
-
             </div>
           )}
         </div>

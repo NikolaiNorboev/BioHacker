@@ -3,6 +3,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import authReducer from './reducers/auth';
 import questionnaireReducer from './reducers/questionnaire';
 import stepperReducer from './reducers/stepper';
+import channelReducer from './reducers/channel';
 
 
 // const storageState = window.localStorage.getItem('state') || '{"isAuthenticated": false}';
@@ -13,6 +14,7 @@ const store = createStore(
     auth: authReducer,
     quest: questionnaireReducer,
     step: stepperReducer,
+    channel: channelReducer,
   }),
   // initialState,
   {},

@@ -12,7 +12,7 @@ export default async () => {
 
   if (response.status === 200) {
     const json = await response.json();
-    dispatch(getUser(json.username));
+    dispatch(getUser(json.username, json.flag, json.id));
   } else {
     dispatch({ type: 'LOGOUT' });
   }
