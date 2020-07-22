@@ -4,6 +4,7 @@ import authReducer from './reducers/auth';
 import questionnaireReducer from './reducers/questionnaire';
 import stepperReducer from './reducers/stepper';
 import channelReducer from './reducers/channel';
+import programReducer from  './reducers/program';
 
 
 // const storageState = window.localStorage.getItem('state') || '{"isAuthenticated": false}';
@@ -15,6 +16,7 @@ const store = createStore(
     quest: questionnaireReducer,
     step: stepperReducer,
     channel: channelReducer,
+    program: programReducer,
   }),
   // initialState,
   {},
