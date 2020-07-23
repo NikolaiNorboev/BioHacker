@@ -6,16 +6,19 @@ dotenv.config();
 // Job worker
 async function handler(job, complete, worker) {
   worker.log('Task variables', job.variables);
-  console.log(job.variables);
 
   // Task worker business logic goes here
-
-  // ----
-
-  const updateToBrokerVariables = {
-    // new data
-  };
-  complete.success(updateToBrokerVariables);
+  if (job.variables.count === 1) {
+    const updateToBrokerVariables = {
+      isEventEnded: true,
+    };
+    complete.success(updateToBrokerVariables);
+  } else {
+    const updateToBrokerVariables = {
+      count: 1,
+    };
+    complete.success(updateToBrokerVariables);
+  }
 }
 
 // Worker connection settings
