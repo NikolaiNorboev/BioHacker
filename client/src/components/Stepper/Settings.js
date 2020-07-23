@@ -28,8 +28,8 @@ export default function () {
 
   function saveAndGoToLK() {
     const responseSettings = setSettings();
+    history.push('/user');
     if (responseSettings.status === 200) {
-      history.push('/user');
     }
 
     // if (event.target.id === 'push') {
