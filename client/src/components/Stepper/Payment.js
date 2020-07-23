@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './payment.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { stepPlus } from '../../redux/actions/stepper';
@@ -34,7 +34,7 @@ export default function Payment() {
 
         <div className="card-header">
           Детали платежа
-          <img className="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png"/>
+          <img className="img-responsive pull-right" alt="cards" src="http://i76.imgup.net/accepted_c22e0.png"/>
         </div>
 
         <div className="card-body">
