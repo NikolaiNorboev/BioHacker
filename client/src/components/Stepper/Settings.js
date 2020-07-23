@@ -18,18 +18,30 @@ export default function () {
   const auth = useSelector(state => state.auth);
   const channel = useSelector(state => state.channel);
   const program = useSelector(state => state.program);
+  const subscription = useSelector(state => state.channel);
   const dispatch = useDispatch();
 
   function saveAndGoToLK() {
-
     const responseSettings = setSettings();
-
     if (responseSettings.status === 200) {
       history.push('/user');
     }
+
+    // if (event.target.id === 'push') {
+    //   pushCheckBoxHandler();
+    // }
   }
 
   async function setSettings() {
+
+    await fetch('/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(subscription),
+    });
+
     return await fetch('/api/settings', {
       method: 'POST',
       headers: {

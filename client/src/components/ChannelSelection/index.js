@@ -51,18 +51,17 @@ function ChannelSelection() {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY),
     });
-
-    // dispatch(setPushInfo(subscription));
+    dispatch(setPushInfo(subscription.toJSON()));
 
     // Send push notification
-    await fetch('/subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(subscription),
+    // await fetch('/subscribe', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(subscription),
 
-    });
+    // });
   }
 
   // какая то функция которая конвертирует ключ
