@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './programList.module.css';
-import { useDispatch } from 'react-redux';
-import { stepPlus } from '../../redux/actions/stepper';
+import { useDispatch, useSelector } from 'react-redux';
+import { stepPlus } from '../../redux/actions/stepper'; 
 import { setPrice } from '../../redux/actions/program';
 
 
 //  action перед покупкой пррограммы
 export default function () {
   const dispatch = useDispatch();
+  const program = useSelector(state => state.program);
   function next(price) {
     dispatch(setPrice(price));
     dispatch(stepPlus());
@@ -32,7 +33,7 @@ export default function () {
               </div>
               <div className={`card-text ${styles.pad}`}>
                 <h1 className="card-title pricing-card-title">
-                  ₽500
+                  {program.baseCost}
                   <small className="text-muted">/ м</small>
                 </h1>
                 <ul className="list-unstyled mt-3 mb-4">
@@ -42,7 +43,7 @@ export default function () {
                   <li> &nbsp;</li>
                   <li> &nbsp;</li>
                 </ul>
-                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={() => next(500)}>
+                <button type="button" className="green btn btn-lg btn-block btn-outline-success" onClick={() => next(program.baseCost)}>
                   Начать
                 </button>
               </div>
@@ -55,7 +56,7 @@ export default function () {
               </div>
               <div className={`card-text ${styles.pad}`}>
                 <h1 className="card-title pricing-card-title">
-                  ₽1000
+                  {program.baseCost + 3000}
                   <small className="text-muted">/ м</small>
                 </h1>
                 <ul className="list-unstyled mt-3 mb-4">
@@ -65,7 +66,7 @@ export default function () {
                   <li className="list-group-item-success">Чат поддержки</li>
                   <li> &nbsp; </li>
                 </ul>
-                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(1000)}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(program.baseCost + 3000)}>
                   Начать
                 </button>
               </div>
@@ -78,7 +79,7 @@ export default function () {
               </div>
               <div className={`card-text ${styles.pad}`}>
                 <h1 className="card-title pricing-card-title">
-                  ₽3000
+                  {program.baseCost + 7000}
                   <small className="text-muted">/ м</small>
                 </h1>
                 <ul className="list-unstyled mt-3 mb-4">
@@ -90,7 +91,7 @@ export default function () {
                     1 личная консультация
                   </li>
                 </ul>
-                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(3000)}>
+                <button type="button" className="btn btn-lg btn-block btn-success" onClick={() => next(program.baseCost + 7000)}>
                   Начать
                 </button>
               </div>

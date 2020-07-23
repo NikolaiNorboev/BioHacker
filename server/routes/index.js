@@ -1,6 +1,8 @@
 import express from 'express';
 import argon2 from 'argon2';
 import User from '../models/user.js';
+import Course from '../models/course.js';
+import Program from '../models/program.js';
 
 const router = express.Router();
 
@@ -107,17 +109,33 @@ router.post('/flag', async (req, res) => {
 });
 
 router.post('/settings', async (req, res) => {
-  const { id, channelType, startDate, telegramUserName, pushSubscription } = req.body;
+  const {
+    id, username, programId, channelType, startDate, telegramUserName, pushSubscription,
+  } = req.body;
+  // console.log(startDate);
   let email;
   let telegram;
   let pushMessage;
-  const STDATE = startDate(startDate.getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, '');
-  console.log(`date --> `, STDATE);
+  // const STDATE = startDate(startDate.getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, '');
+  const STDATE = new Date(startDate);
+  try {
+    const course = await new Course({
+      user: id,
+      program: programId,
+      date: STDATE,
+      description: `Course for ${username} start ${STDATE}`,
+      events: await Program.generateEvents(STDATE.getTime(), programId),
+    });
+    await course.save();
+    console.log(course);
+  } catch (e) {
+    console.log(e);
+  }
 
   function setChannelFlags(channelType) {
-    if (channelType === 'email') return (email = true, telegram = false, pushMessage = false );
-    if (channelType === 'telegram') return (email = false, telegram = true, pushMessage = false );
-    if (channelType === 'push') return (email = false, telegram = false, pushMessage = true );
+    if (channelType === 'email') return (email = true, telegram = false, pushMessage = false);
+    if (channelType === 'telegram') return (email = false, telegram = true, pushMessage = false);
+    if (channelType === 'push') return (email = false, telegram = false, pushMessage = true);
   }
 
   setChannelFlags(channelType);
@@ -129,6 +147,7 @@ router.post('/settings', async (req, res) => {
       'chanelOfInfo.telegram': `${telegram}`,
       'chanelOfInfo.telegramUsername': `${telegramUserName}`,
       'chanelOfInfo.pushMessage': `${pushMessage}`,
+      flag: 2,
     });
 
     res.status(200).end();

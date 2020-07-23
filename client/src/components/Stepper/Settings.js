@@ -17,29 +17,16 @@ export default function () {
   const history = useHistory();
   const auth = useSelector(state => state.auth);
   const channel = useSelector(state => state.channel);
-
+  const program = useSelector(state => state.program);
   const dispatch = useDispatch();
 
   function saveAndGoToLK() {
 
     const responseSettings = setSettings();
-    const responseFlag =  setFlag();
 
-    if (responseSettings.status === 200 && responseFlag.status === 200 ) {
+    if (responseSettings.status === 200) {
       history.push('/user');
     }
-  }
-
-  async function setFlag() {
-    return await fetch('/api/flag', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: auth.id,
-      }),
-    });
   }
 
   async function setSettings() {
@@ -50,6 +37,8 @@ export default function () {
       },
       body: JSON.stringify({
         id: auth.id,
+        username: auth.username,
+        programId: program._id,
         startDate: channel.startDate,
         channelType: channel.channelType,
         telegramUserName: channel.telegramUserName,
@@ -59,6 +48,7 @@ export default function () {
   }
 
   function setDateHandler(date) {
+    console.log(date);
     dispatch(setDate(date));
   }
 

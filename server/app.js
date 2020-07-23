@@ -7,6 +7,7 @@ import indexRouter from './routes/index.js';
 import authRouter from './routes/auth.js';
 import courseRouter from './routes/course.js';
 import serviceWorkerRoute from './routes/serviceWorker.js';
+import programRouter from './routes/program.js';
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.use('/api', indexRouter);
 app.use('/auth', authRouter);
 app.use('/course', courseRouter);
 app.use(serviceWorkerRoute);
-
+app.use('/program', programRouter);
 // Обработка несуществующих запросов
 errorHandlers(app);
 

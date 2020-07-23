@@ -9,8 +9,11 @@ const courseSchema = new mongoose.Schema({
     type: mongoose.ObjectId,
     ref: 'Program',
   },
+  options: {
+    type: Number,
+  },
   startDate: {
-    type: String,
+    type: Date,
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
   description: String,

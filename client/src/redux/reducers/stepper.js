@@ -1,4 +1,4 @@
-import { STEPPLUS, STEPMINUS, STEPFOUR } from '../actions/action-types';
+import { STEPPLUS, STEPMINUS, STEPFOUR, STEPZERO } from '../actions/action-types';
 
 export default (state = 0, action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ export default (state = 0, action) => {
       return state = state - 1;
     case STEPFOUR:
       return state = 3;
+    case STEPZERO:
+      return state = 0;
     default:
       return state;
   }

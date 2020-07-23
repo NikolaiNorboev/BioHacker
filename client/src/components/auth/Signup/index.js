@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../../redux/actions/action-creators';
-
+import { stepZero } from '../../../redux/actions/stepper';
 
 export default function Signup() {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ export default function Signup() {
     if (response.status === 200) {
       const json = await response.json();
       dispatch(getUser(json.username, json.flag, json.id));
+      dispatch(stepZero());
       return history.push('/stepper');
     }
     const json = await response.json();

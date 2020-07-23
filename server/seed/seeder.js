@@ -215,7 +215,7 @@ import Course from '../models/course.js';
       ],
     },
   );
-  // await Program.insertMany(programList).catch((error) => console.log(error));
+  await Program.insertMany(programList).catch((error) => console.log(error));
 
   const coursesList = [];
   programList[0]._id = '5f17f184c380e82577d811e2';
@@ -232,5 +232,5 @@ import Course from '../models/course.js';
     }),
   );
 
-  await Course.insertMany(coursesList).catch((error) => console.log(error));
+  // await Course.insertMany(coursesList).catch((error) => console.log(error));
 })();
