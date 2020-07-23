@@ -23,7 +23,7 @@ export default function () {
 
   function saveAndGoToLK() {
     const responseSettings = setSettings();
-    history.push('/user');
+    history.push('/');
     if (responseSettings.status === 200) {
     }
 
