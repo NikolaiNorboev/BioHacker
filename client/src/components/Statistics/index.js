@@ -176,7 +176,7 @@ export default function Statistics({  }) {
   const localizer = momentLocalizer(moment)
 
   return (
-    <div className='container' style={{ height: 700 }}>
+    <div className='container mt-4' style={{ height: '600px' }}>
       {error && <span className="error">{error}</span>}
       <Calendar
         localizer={localizer}
