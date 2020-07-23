@@ -11,8 +11,6 @@ route.post('/subscribe', async (req, res) => {
   const id = req.session.user._id;
 
   console.log('subscription:  ', subscription);
-  // send 201
-  // TODO: Добавить сохранение в БД ключей от пушей клиента ->
   try {
     await User.findByIdAndUpdate(id, {
       'chanelOfInfo.pushKey.endpoint': `${subscription.endpoint}`,
