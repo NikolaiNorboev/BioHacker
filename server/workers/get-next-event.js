@@ -10,7 +10,7 @@ async function handler(job, complete, worker) {
   worker.log('Task variables', job.variables);
 
   const { nextEventTime, event } = await getNextEvent(job.variables.data.user_id);
-  const shortUrl = `http://localhost:3001/course/${event._id}`;
+  const shortUrl = `http://localhost:3001/course/push/${event._id}`;
   if (nextEventTime) {
     console.log('>>>>>>>>>>>>>>>>>>>>>>', shortUrl);
     const updateToBrokerVariables = { nextEventTime, event, shortUrl };

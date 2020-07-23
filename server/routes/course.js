@@ -72,8 +72,14 @@ router
     };
   });
 
-router.get('/:id', async (req, res) => {
-  
-}
+router.get('/push/:id', async (req, res) => {
+  const courses = await Course.find();
+  courses.map(course => course.events.map(event => {
+    if (event._id == req.params.id) {
+      event.result = 1;
+      course.save();
+    }
+  }));
+});
 
 export default router;
