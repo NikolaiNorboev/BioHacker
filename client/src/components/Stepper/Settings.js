@@ -1,6 +1,8 @@
 import React from 'react';
 import ChannelSelection from '../ChannelSelection';
 import PurchaseList from '../program/purchaseList'
+import PurchasePhone from '../program/PurchasePhone'
+
 // import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import DayPicker from 'react-date-picker';
@@ -20,6 +22,9 @@ export default function () {
   const program = useSelector(state => state.program);
   const subscription = useSelector(state => state.channel);
   const dispatch = useDispatch();
+
+  // сделать +1 день и формат норрмальный 
+  // const deliveryDate = new Date();
 
   function saveAndGoToLK() {
     const responseSettings = setSettings();
@@ -60,17 +65,38 @@ export default function () {
   }
 
   function setDateHandler(date) {
-    console.log(date);
+    // console.log(date);
     dispatch(setDate(date));
+  }
+
+  function generateAlert() {
+
   }
 
   return (
     <>
+
+      <div className="alert alert-success" role="alert">
+        <h4 className="alert-heading text-center">Поздравляем, вы успешно зарегистрированы в программе!</h4>
+        <p>Ожидаемая дата доставки - завтра</p>
+      </div>
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <ul>
+          <li>Чтобы курьер смог с вами связать и согласовать доставку, заполните, пожалуйста, номер телефона</li>
+          <li>Укажите дату старта программы, от нее зависит сформированный график приема</li>
+          <li>Выберите предпочтительный вариант уведомлений</li>
+        </ul>
+      </div>
+
       <div>
         <div className="card">
             <PurchaseList />
         </div>
 
+        <div className="card">
+            <PurchasePhone />
+        </div>
 
         <div className='card'>
           <div className="card-header">
