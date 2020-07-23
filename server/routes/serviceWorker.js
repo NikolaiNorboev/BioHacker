@@ -9,6 +9,7 @@ const route = express.Router();
 route.post('/subscribe', async (req, res) => {
   const subscription = req.body;
   const id = req.session.user._id;
+  subscription.user_id = id;
 
   console.log('subscription:  ', subscription);
   try {
