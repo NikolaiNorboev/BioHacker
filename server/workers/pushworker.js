@@ -7,26 +7,12 @@ dotenv.config();
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 
-webpush.setVapidDetails(
-  process.env.EMAIL,
-  publicVapidKey,
-  privateVapidKey,
-);
+webpush.setVapidDetails(process.env.EMAIL, publicVapidKey, privateVapidKey);
 
-const subscription = {
-  endpoint:
-    'https://fcm.googleapis.com/fcm/send/d3aFki49g0E:APA91bGzu88_BuKQV5_SrGo0bx4O6d5-ANVyQmauJOYSFEp0rLkCYptmwYwFmy2zYHJA1Rwb0w3e-5vH9vEwQjkEII2njuWAAMTS3v52WBJtotbMnNmfXQgu4KtYMKJjvuS2-UN_vB6Z',
-  expirationTime: null,
-  keys: {
-    p256dh:
-      'BGNwezkm4h-vHxot_TOhAbqhFVWcC4LM6GfekfCX82g09u1Mqyy0cjWm_Zh2sUg4f6EaLgPwMgJRUb1aYNjMR8s',
-    auth: 'htfxjAU9_aKadQH7HfPz6Q',
-  },
-};
-
+// Message text
 const payload = JSON.stringify({
-  title: 'Пуш из Node js',
-  body: 'Привет!!!!',
+  title: 'Добро пожаловать в Biohacker',
+  body: 'Спасибо за выбор программы Detox',
   icon:
     'http://biohackacademy.github.io/biofactory/graphics/biohack_academy_logo.png',
 });
@@ -40,11 +26,22 @@ async function sendPush(subscription, payload) {
 // Job worker
 async function handler(job, complete, worker) {
   worker.log('Task variables', job.variables);
-  console.log(job.variables);
+  // console.log('>>>>JOB VARS', job.variables.name);
+
+  // keys from client
+  const subscription = {
+    endpoint: job.variables.push.endpoint,
+    expirationTime: null,
+    keys: {
+      p256dh: job.variables.push.keys.p256dh,
+      auth: job.variables.push.keys.auth,
+    },
+  };
+  // console.log('>>>>>>>SUBSCRIPTION', subscription);
 
   // Task worker business logic goes here
   const result = await sendPush(subscription, payload);
-  console.log(result);
+  // console.log(result);
   const updateToBrokerVariables = {
     t_message: result.message_id,
   };
