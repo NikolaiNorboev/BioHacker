@@ -9,14 +9,6 @@ const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 
 webpush.setVapidDetails(process.env.EMAIL, publicVapidKey, privateVapidKey);
 
-// Message text
-const payload = JSON.stringify({
-  title: 'Добро пожаловать в Biohacker',
-  body: 'Спасибо за выбор программы Detox',
-  icon:
-    'http://biohackacademy.github.io/biofactory/graphics/biohack_academy_logo.png',
-});
-
 async function sendPush(subscription, payload) {
   return webpush
     .sendNotification(subscription, payload)
@@ -38,12 +30,25 @@ async function handler(job, complete, worker) {
     },
   };
   // console.log('>>>>>>>SUBSCRIPTION', subscription);
+  let bodyText = '';
+  if (job.variables.shortUrl) {
+    bodyText = `Пожалуйста, отметьте выполнение процедуры, перейдя по ссылке ->  ${job.variables.shortUrl}`;
+  } else {
+    bodyText = 'Спасибо за выбор программы Detox. Скоро вам придет уведомление о начале программы.';
+  }
+  // Message text
+  const payload = JSON.stringify({
+    title: 'Добро пожаловать в Biohacker',
+    body: bodyText,
+    icon:
+      'http://biohackacademy.github.io/biofactory/graphics/biohack_academy_logo.png',
+  });
 
   // Task worker business logic goes here
   const result = await sendPush(subscription, payload);
   // console.log(result);
   const updateToBrokerVariables = {
-    t_message: result.message_id,
+    pushDate: new Date(),
   };
   complete.success(updateToBrokerVariables);
 }
