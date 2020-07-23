@@ -17,6 +17,8 @@ async function startProcess(push, channel) {
     push,
     channel: 'push',
     programmStartDate: 'PT15S',
+    isEventEnded: false,
+    nextEventTime: 'PT15S',
   });
   return result;
 }
