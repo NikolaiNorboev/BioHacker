@@ -30,11 +30,11 @@ async function handler(job, complete, worker) {
 
   // keys from client
   const subscription = {
-    endpoint: job.variables.push.endpoint,
+    endpoint: job.variables.data.pushSubscription.endpoint,
     expirationTime: null,
     keys: {
-      p256dh: job.variables.push.keys.p256dh,
-      auth: job.variables.push.keys.auth,
+      p256dh: job.variables.data.pushSubscription.keys.p256dh,
+      auth: job.variables.data.pushSubscription.keys.auth,
     },
   };
   // console.log('>>>>>>>SUBSCRIPTION', subscription);

@@ -5,7 +5,7 @@ import zeebe from 'zeebe-node';
 dotenv.config();
 
 // Start new process instance
-async function startProcess(push, channel) {
+async function startProcess(data) {
   const zbc = new zeebe.ZBClient({
     camundaCloud: {
       clientId: process.env.ZEEBE_CLIENT_ID,
@@ -14,8 +14,8 @@ async function startProcess(push, channel) {
     },
   });
   const result = await zbc.createWorkflowInstance('Process_0stgo3g', {
-    push,
-    channel: 'push',
+    data,
+    channel: data.channelType,
     programmStartDate: 'PT15S',
     isEventEnded: false,
     nextEventTime: 'PT15S',
