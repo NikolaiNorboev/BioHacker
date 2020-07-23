@@ -9,13 +9,11 @@ dotenv.config();
 async function handler(job, complete, worker) {
   worker.log('Task variables', job.variables);
 
-  const nextEvent = await getNextEvent(job.variables.data.user_id);
-  console.log('>>>>>>>>>>>>>>>>>>>>>>', nextEvent);
-  if (nextEvent.nextEventTime) {
-    const updateToBrokerVariables = {
-      nextEventTime: nextEvent.nextEventTime,
-      event: nextEvent.event,
-    };
+  const { nextEventTime, event } = await getNextEvent(job.variables.data.user_id);
+  const shortUrl = `http://localhost:3001/course/${event._id}`;
+  if (nextEventTime) {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>', shortUrl);
+    const updateToBrokerVariables = { nextEventTime, event, shortUrl };
     complete.success(updateToBrokerVariables);
   } else {
     const updateToBrokerVariables = { isEventEnded: true };
@@ -56,7 +54,7 @@ async function getNextEvent(id) {
     .format("HH:mm:ss");
     return {
       event,
-      nextEventTime: 'PT' + result.slice(0, 1) + 'H' + result.slice(3, 4) + 'M',
+      nextEventTime: 'PT' + result.slice(0, 2) + 'H' + result.slice(3, 5) + 'M',
     };
   };
 }

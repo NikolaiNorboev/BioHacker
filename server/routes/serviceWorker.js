@@ -11,7 +11,7 @@ route.post('/subscribe', async (req, res) => {
   const id = req.session.user._id;
   subscription.user_id = id;
 
-  console.log('subscription:  ', subscription);
+  // console.log('subscription:  ', subscription);
   try {
     await User.findByIdAndUpdate(id, {
       'chanelOfInfo.pushKey.endpoint': `${subscription.endpoint}`,
