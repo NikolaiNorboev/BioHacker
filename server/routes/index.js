@@ -127,7 +127,6 @@ router.post('/settings', async (req, res) => {
       events: await Program.generateEvents(STDATE.getTime(), programId),
     });
     await course.save();
-    console.log(course);
   } catch (e) {
     console.log(e);
   }
