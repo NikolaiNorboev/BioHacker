@@ -13,8 +13,6 @@
     "bootstrap-icons": "^1.0.0-alpha5",
     "date-arithmetic": "^4.1.0",
     "moment": "^2.27.0",
-    "node-sass": "^4.14.1",
-    "rc-steps": "^4.0.1",
     "react": "^16.13.1",
     "react-big-calendar": "^0.26.0",
     "react-bootstrap": "^1.1.1",
@@ -27,9 +25,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-spring": "^8.0.27",
     "react-stepper-horizontal": "^1.0.11",
-    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8"
   },
