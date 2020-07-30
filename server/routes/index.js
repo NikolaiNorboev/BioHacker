@@ -28,7 +28,7 @@ router
       }
     } catch (error) {
       console.log(error);
-      res.status(401).json({ message: error.message });
+      return res.status(401).json({ message: error.message });
     }
 
     // username и email вручную
